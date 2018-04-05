@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+// -----------------------------------------------------------------------
+Route::get('trang-chu', 'PageController@index');
+
+Route::get('chi-tiet', 'PageController@detail');
 
 //-------------------------------------------------------------------
 Route::get('forgot-pass', 'PageController@forgotPassword');
