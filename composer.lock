@@ -1256,6 +1256,7 @@
                 "identifier",
                 "uuid"
             ],
+
             "time": "2018-01-13T22:22:03+00:00"
         },
         {
@@ -1566,6 +1567,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/finder/zipball/613e26310776f49a1773b6737c6bd554b8bc8c6f",
                 "reference": "613e26310776f49a1773b6737c6bd554b8bc8c6f",
+
                 "shasum": ""
             },
             "require": {
@@ -2056,6 +2058,22 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-02-22T10:50:29+00:00"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v3.4.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "6f502127b1bb85f7f30f8bc1fb60570a10431863"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6f502127b1bb85f7f30f8bc1fb60570a10431863",
+                "reference": "6f502127b1bb85f7f30f8bc1fb60570a10431863",
+=======
             "time": "2018-01-03T07:37:34+00:00"
         },
         {
@@ -2070,6 +2088,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/var-dumper/zipball/545be7e78ccbec43e599f10ff7500d0b09eda9d0",
                 "reference": "545be7e78ccbec43e599f10ff7500d0b09eda9d0",
+>>>>>>> 18cb5f19931a70d773f6ad0ce82653839546394b
                 "shasum": ""
             },
             "require": {
@@ -2125,7 +2144,11 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-03T05:22:50+00:00"
+=======
             "time": "2018-01-03T17:14:19+00:00"
+>>>>>>> 18cb5f19931a70d773f6ad0ce82653839546394b
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
