@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 class PageController extends Controller {
-	public function forgotPassword() {
+	public function getForgotPassword() {
 		return view('pages.form_forgotpassword');
 	}
 
@@ -16,4 +16,10 @@ class PageController extends Controller {
 	public function detail() {
 		return view('pages.detail');
 	}
+
+	// call contact pagr
+	public function getContact() {
+		return view('pages.contact_page');
+	}
+
 }

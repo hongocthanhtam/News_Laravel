@@ -23,4 +23,7 @@ Route::get('trang-chu', 'PageController@index');
 Route::get('chi-tiet', 'PageController@detail');
 
 //-------------------------------------------------------------------
-Route::get('forgot-pass', 'PageController@forgotPassword');
+Route::get('forgot-pass', 'PageController@getForgotPassword');
+
+//-------------------------------------------------------------------
+Route::get('contact', 'PageController@getContact');
