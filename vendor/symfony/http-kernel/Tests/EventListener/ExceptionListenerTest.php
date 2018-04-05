@@ -134,7 +134,11 @@ class ExceptionListenerTest extends TestCase
             return new Response($request->getRequestFormat());
         }));
 
+<<<<<<< HEAD
         $listener = new ExceptionListener('foo', $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock());
+=======
+        $listener = new ExceptionListener('foo', $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock(), true);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $dispatcher->addSubscriber($listener);
 

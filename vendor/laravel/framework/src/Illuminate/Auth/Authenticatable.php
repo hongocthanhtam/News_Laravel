@@ -44,12 +44,20 @@ trait Authenticatable
     /**
      * Get the token value for the "remember me" session.
      *
+<<<<<<< HEAD
      * @return string
+=======
+     * @return string|null
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getRememberToken()
     {
         if (! empty($this->getRememberTokenName())) {
+<<<<<<< HEAD
             return $this->{$this->getRememberTokenName()};
+=======
+            return (string) $this->{$this->getRememberTokenName()};
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
     }
 

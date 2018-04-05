@@ -134,10 +134,31 @@ class ErrorHandler
             $handler = $prev[0];
             $replace = false;
         }
+<<<<<<< HEAD
         if ($replace || !$prev) {
             $handler->setExceptionHandler(set_exception_handler(array($handler, 'handleException')));
         } else {
             restore_error_handler();
+=======
+        if (!$replace && $prev) {
+            restore_error_handler();
+            $handlerIsRegistered = is_array($prev) && $handler === $prev[0];
+        } else {
+            $handlerIsRegistered = true;
+        }
+        if (is_array($prev = set_exception_handler(array($handler, 'handleException'))) && $prev[0] instanceof self) {
+            restore_exception_handler();
+            if (!$handlerIsRegistered) {
+                $handler = $prev[0];
+            } elseif ($handler !== $prev[0] && $replace) {
+                set_exception_handler(array($handler, 'handleException'));
+                $p = $prev[0]->setExceptionHandler(null);
+                $handler->setExceptionHandler($p);
+                $prev[0]->setExceptionHandler($p);
+            }
+        } else {
+            $handler->setExceptionHandler($prev);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
 
         $handler->throwAt(E_ALL & $handler->thrownErrors, true);
@@ -565,15 +586,26 @@ class ErrorHandler
                 }
             }
         }
+<<<<<<< HEAD
         try {
             if (null !== $this->exceptionHandler) {
                 return \call_user_func($this->exceptionHandler, $exception);
+=======
+        $exceptionHandler = $this->exceptionHandler;
+        $this->exceptionHandler = null;
+        try {
+            if (null !== $exceptionHandler) {
+                return \call_user_func($exceptionHandler, $exception);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
             $handlerException = $handlerException ?: $exception;
         } catch (\Exception $handlerException) {
         } catch (\Throwable $handlerException) {
         }
+<<<<<<< HEAD
         $this->exceptionHandler = null;
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         if ($exception === $handlerException) {
             self::$reservedMemory = null; // Disable the fatal error handler
             throw $exception; // Give back $exception to the native handler
@@ -596,6 +628,11 @@ class ErrorHandler
 
         $handler = self::$reservedMemory = null;
         $handlers = array();
+<<<<<<< HEAD
+=======
+        $previousHandler = null;
+        $sameHandlerLimit = 10;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         while (!is_array($handler) || !$handler[0] instanceof self) {
             $handler = set_exception_handler('var_dump');
@@ -605,7 +642,18 @@ class ErrorHandler
                 break;
             }
             restore_exception_handler();
+<<<<<<< HEAD
             array_unshift($handlers, $handler);
+=======
+
+            if ($handler !== $previousHandler) {
+                array_unshift($handlers, $handler);
+                $previousHandler = $handler;
+            } elseif (0 === --$sameHandlerLimit) {
+                $handler = null;
+                break;
+            }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
         foreach ($handlers as $h) {
             set_exception_handler($h);

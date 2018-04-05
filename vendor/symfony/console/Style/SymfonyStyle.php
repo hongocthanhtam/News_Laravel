@@ -279,7 +279,11 @@ class SymfonyStyle extends OutputStyle
     }
 
     /**
+<<<<<<< HEAD
      * @return string
+=======
+     * @return mixed
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function askQuestion(Question $question)
     {

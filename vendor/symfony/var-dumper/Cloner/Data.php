@@ -63,7 +63,11 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @param bool $recursive Whether values should be resolved recursively or not
      *
+<<<<<<< HEAD
      * @return scalar|array|null|Data[] A native representation of the original value
+=======
+     * @return string|int|float|bool|array|null|Data[] A native representation of the original value
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getValue($recursive = false)
     {
@@ -227,7 +231,11 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
      *
      * @param string|int $key The key to seek to
      *
+<<<<<<< HEAD
      * @return self|null A clone of $this of null if the key is not set
+=======
+     * @return self|null A clone of $this or null if the key is not set
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function seek($key)
     {

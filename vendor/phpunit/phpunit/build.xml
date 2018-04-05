@@ -376,7 +376,11 @@
         <exec executable="${basedir}/build/version.php" outputproperty="version" />
     </target>
 
+<<<<<<< HEAD
     <target name="generate-project-documentation" depends="-phploc,-phpcs,-phpmd,-phpunit">
+=======
+    <target name="generate-project-documentation" depends="-phploc,-checkstyle,-phpmd,-phpunit">
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         <exec executable="${basedir}/build/tools/phpdox" dir="${basedir}/build" taskname="phpdox"/>
     </target>
 
@@ -390,6 +394,7 @@
         </exec>
     </target>
 
+<<<<<<< HEAD
     <target name="phpcs">
         <exec executable="${basedir}/build/tools/phpcs" taskname="phpcs">
             <arg value="--standard=${basedir}/build/phpcs.xml"/>
@@ -405,6 +410,14 @@
             <arg value="--cache"/>
             <arg value="--report=checkstyle"/>
             <arg value="--report-file=${basedir}/build/logfiles/checkstyle.xml"/>
+=======
+    <target name="-checkstyle" depends="prepare">
+        <exec executable="${basedir}/build/tools/php-cs-fixer" output="${basedir}/build/logfiles/checkstyle.xml" error="/dev/null" taskname="php-cs-fixer">
+            <arg value="--diff"/>
+            <arg value="--dry-run"/>
+            <arg value="fix"/>
+            <arg value="--format=checkstyle"/>
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         </exec>
     </target>
 

@@ -11,13 +11,17 @@
 namespace PHPUnit\Framework;
 
 use PHPUnit\Framework\Constraint\Count;
+<<<<<<< HEAD
 use PHPUnit\Framework\Constraint\IsEmpty;
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use PHPUnit\Framework\Constraint\SameSize;
 use PHPUnit\Framework\Constraint\TraversableContains;
 use PHPUnit\Util\Filter;
 
 class ConstraintTest extends TestCase
 {
+<<<<<<< HEAD
     public function testConstraintArrayHasKey()
     {
         $constraint = Assert::arrayHasKey(0);
@@ -32,40 +36,7 @@ class ConstraintTest extends TestCase
             $this->assertEquals(
                 <<<EOF
 Failed asserting that an array has the key 0.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintArrayHasKey2()
-    {
-        $constraint = Assert::arrayHasKey(0);
-
-        try {
-            $constraint->evaluate([], 'custom message');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-custom message\nFailed asserting that an array has the key 0.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
+=======
     public function testConstraintArrayNotHasKey()
     {
         $constraint = Assert::logicalNot(
@@ -82,6 +53,7 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that an array does not have the key 0.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -94,6 +66,18 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
+    public function testConstraintArrayHasKey2()
+    {
+        $constraint = Assert::arrayHasKey(0);
+
+        try {
+            $constraint->evaluate([], 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message\nFailed asserting that an array has the key 0.
+=======
     public function testConstraintArrayNotHasKey2()
     {
         $constraint = Assert::logicalNot(
@@ -107,6 +91,7 @@ EOF
                 <<<EOF
 custom message
 Failed asserting that an array does not have the key 0.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -119,133 +104,24 @@ EOF
         $this->fail();
     }
 
-    public function testConstraintIsReadable()
+<<<<<<< HEAD
+    public function testConstraintArrayNotHasKey()
     {
-        $constraint = Assert::isReadable();
+        $constraint = Assert::logicalNot(
+            Assert::arrayHasKey(0)
+        );
 
-        $this->assertFalse($constraint->evaluate('foo', '', true));
-        $this->assertEquals('is readable', $constraint->toString());
+        $this->assertFalse($constraint->evaluate([0 => 1], '', true));
+        $this->assertEquals('does not have the key 0', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         try {
-            $constraint->evaluate('foo');
+            $constraint->evaluate([0 => 1]);
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
-Failed asserting that "foo" is readable.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintIsWritable()
-    {
-        $constraint = Assert::isWritable();
-
-        $this->assertFalse($constraint->evaluate('foo', '', true));
-        $this->assertEquals('is writable', $constraint->toString());
-        $this->assertCount(1, $constraint);
-
-        try {
-            $constraint->evaluate('foo');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-Failed asserting that "foo" is writable.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintDirectoryExists()
-    {
-        $constraint = Assert::directoryExists();
-
-        $this->assertFalse($constraint->evaluate('foo', '', true));
-        $this->assertEquals('directory exists', $constraint->toString());
-        $this->assertCount(1, $constraint);
-
-        try {
-            $constraint->evaluate('foo');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-Failed asserting that directory "foo" exists.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintFileExists()
-    {
-        $constraint = Assert::fileExists();
-
-        $this->assertFalse($constraint->evaluate('foo', '', true));
-        $this->assertEquals('file exists', $constraint->toString());
-        $this->assertCount(1, $constraint);
-
-        try {
-            $constraint->evaluate('foo');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-Failed asserting that file "foo" exists.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintFileExists2()
-    {
-        $constraint = Assert::fileExists();
-
-        try {
-            $constraint->evaluate('foo', 'custom message');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-custom message
-Failed asserting that file "foo" exists.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
+Failed asserting that an array does not have the key 0.
+=======
     public function testConstraintFileNotExists()
     {
         $file = \dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'ClassWithNonPublicAttributes.php';
@@ -264,6 +140,7 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that file "$file" does not exist.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -276,6 +153,308 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
+    public function testConstraintArrayNotHasKey2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::arrayHasKey(0)
+        );
+
+        try {
+            $constraint->evaluate([0], 'custom message');
+=======
+    public function testConstraintFileNotExists2()
+    {
+        $file = \dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'ClassWithNonPublicAttributes.php';
+
+        $constraint = Assert::logicalNot(
+            Assert::fileExists()
+        );
+
+        try {
+            $constraint->evaluate($file, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+<<<<<<< HEAD
+Failed asserting that an array does not have the key 0.
+=======
+Failed asserting that file "$file" does not exist.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintIsReadable()
+    {
+        $constraint = Assert::isReadable();
+
+        $this->assertFalse($constraint->evaluate('foo', '', true));
+        $this->assertEquals('is readable', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('foo');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that "foo" is readable.
+=======
+    public function testConstraintNotGreaterThan()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::greaterThan(1)
+        );
+
+        $this->assertTrue($constraint->evaluate(1, '', true));
+        $this->assertEquals('is not greater than 1', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(2);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 2 is not greater than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintIsWritable()
+    {
+        $constraint = Assert::isWritable();
+
+        $this->assertFalse($constraint->evaluate('foo', '', true));
+        $this->assertEquals('is writable', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('foo');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that "foo" is writable.
+=======
+    public function testConstraintNotGreaterThan2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::greaterThan(1)
+        );
+
+        try {
+            $constraint->evaluate(2, 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that 2 is not greater than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintDirectoryExists()
+    {
+        $constraint = Assert::directoryExists();
+
+        $this->assertFalse($constraint->evaluate('foo', '', true));
+        $this->assertEquals('directory exists', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('foo');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that directory "foo" exists.
+=======
+    public function testConstraintGreaterThanOrEqual()
+    {
+        $constraint = Assert::greaterThanOrEqual(1);
+
+        $this->assertTrue($constraint->evaluate(1, '', true));
+        $this->assertFalse($constraint->evaluate(0, '', true));
+        $this->assertEquals('is equal to 1 or is greater than 1', $constraint->toString());
+        $this->assertCount(2, $constraint);
+
+        try {
+            $constraint->evaluate(0);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 0 is equal to 1 or is greater than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintFileExists()
+    {
+        $constraint = Assert::fileExists();
+
+        $this->assertFalse($constraint->evaluate('foo', '', true));
+        $this->assertEquals('file exists', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('foo');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that file "foo" exists.
+=======
+    public function testConstraintGreaterThanOrEqual2()
+    {
+        $constraint = Assert::greaterThanOrEqual(1);
+
+        try {
+            $constraint->evaluate(0, 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that 0 is equal to 1 or is greater than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintFileExists2()
+    {
+        $constraint = Assert::fileExists();
+
+        try {
+            $constraint->evaluate('foo', 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that file "foo" exists.
+=======
+    public function testConstraintNotGreaterThanOrEqual()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::greaterThanOrEqual(1)
+        );
+
+        $this->assertFalse($constraint->evaluate(1, '', true));
+        $this->assertEquals('not( is equal to 1 or is greater than 1 )', $constraint->toString());
+        $this->assertCount(2, $constraint);
+
+        try {
+            $constraint->evaluate(1);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that not( 1 is equal to 1 or is greater than 1 ).
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintFileNotExists()
+    {
+        $file = \dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'ClassWithNonPublicAttributes.php';
+
+        $constraint = Assert::logicalNot(
+            Assert::fileExists()
+        );
+
+        $this->assertFalse($constraint->evaluate($file, '', true));
+        $this->assertEquals('file does not exist', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate($file);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that file "$file" does not exist.
+=======
+    public function testConstraintNotGreaterThanOrEqual2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::greaterThanOrEqual(1)
+        );
+
+        try {
+            $constraint->evaluate(1, 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that not( 1 is equal to 1 or is greater than 1 ).
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
     public function testConstraintFileNotExists2()
     {
         $file = \dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'ClassWithNonPublicAttributes.php';
@@ -291,6 +470,34 @@ EOF
                 <<<EOF
 custom message
 Failed asserting that file "$file" does not exist.
+=======
+    public function testConstraintIsAnything()
+    {
+        $constraint = Assert::anything();
+
+        $this->assertTrue($constraint->evaluate(null, '', true));
+        $this->assertNull($constraint->evaluate(null));
+        $this->assertEquals('is anything', $constraint->toString());
+        $this->assertCount(0, $constraint);
+    }
+
+    public function testConstraintNotIsAnything()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::anything()
+        );
+
+        $this->assertFalse($constraint->evaluate(null, '', true));
+        $this->assertEquals('is not anything', $constraint->toString());
+        $this->assertCount(0, $constraint);
+
+        try {
+            $constraint->evaluate(null);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that null is not anything.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -303,6 +510,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintGreaterThan()
     {
         $constraint = Assert::greaterThan(1);
@@ -318,6 +526,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that 0 is greater than 1.
+=======
+    public function testConstraintIsNotEqual()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::equalTo(1)
+        );
+
+        $this->assertTrue($constraint->evaluate(0, '', true));
+        $this->assertFalse($constraint->evaluate(1, '', true));
+        $this->assertEquals('is not equal to 1', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(1);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 1 is not equal to 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -330,17 +557,32 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintGreaterThan2()
     {
         $constraint = Assert::greaterThan(1);
 
         try {
             $constraint->evaluate(0, 'custom message');
+=======
+    public function testConstraintIsNotEqual2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::equalTo(1)
+        );
+
+        try {
+            $constraint->evaluate(1, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that 0 is greater than 1.
+=======
+Failed asserting that 1 is not equal to 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -353,6 +595,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintNotGreaterThan()
     {
         $constraint = Assert::logicalNot(
@@ -373,6 +616,32 @@ Failed asserting that 2 is not greater than 1.
 EOF
                 ,
                 TestFailure::exceptionToString($e)
+=======
+    public function testConstraintIsNotIdentical()
+    {
+        $a = new \stdClass;
+        $b = new \stdClass;
+
+        $constraint = Assert::logicalNot(
+            Assert::identicalTo($a)
+        );
+
+        $this->assertTrue($constraint->evaluate($b, '', true));
+        $this->assertFalse($constraint->evaluate($a, '', true));
+        $this->assertEquals('is not identical to an object of class "stdClass"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate($a);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that two variables don't reference the same object.
+
+EOF
+                ,
+                $this->trimnl(TestFailure::exceptionToString($e))
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             );
 
             return;
@@ -381,6 +650,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintNotGreaterThan2()
     {
         $constraint = Assert::logicalNot(
@@ -389,11 +659,27 @@ EOF
 
         try {
             $constraint->evaluate(2, 'custom message');
+=======
+    public function testConstraintIsNotIdentical2()
+    {
+        $a = new \stdClass;
+
+        $constraint = Assert::logicalNot(
+            Assert::identicalTo($a)
+        );
+
+        try {
+            $constraint->evaluate($a, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that 2 is not greater than 1.
+=======
+Failed asserting that two variables don't reference the same object.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -406,6 +692,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintGreaterThanOrEqual()
     {
         $constraint = Assert::greaterThanOrEqual(1);
@@ -421,6 +708,53 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that 0 is equal to 1 or is greater than 1.
+=======
+    public function testConstraintIsNotIdentical3()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::identicalTo('a')
+        );
+
+        try {
+            $constraint->evaluate('a', 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that two strings are not identical.
+
+EOF
+                ,
+                $this->trimnl(TestFailure::exceptionToString($e))
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+    public function testConstraintIsInstanceOf()
+    {
+        $constraint = Assert::isInstanceOf(\Exception::class);
+
+        $this->assertFalse($constraint->evaluate(new \stdClass, '', true));
+        $this->assertTrue($constraint->evaluate(new \Exception, '', true));
+        $this->assertEquals('is instance of class "Exception"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        $interfaceConstraint = Assert::isInstanceOf(\Countable::class);
+        $this->assertFalse($interfaceConstraint->evaluate(new \stdClass, '', true));
+        $this->assertTrue($interfaceConstraint->evaluate(new \ArrayObject, '', true));
+        $this->assertEquals('is instance of interface "Countable"', $interfaceConstraint->toString());
+
+        try {
+            $constraint->evaluate(new \stdClass);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that stdClass Object () is an instance of class "Exception".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -433,17 +767,30 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintGreaterThanOrEqual2()
     {
         $constraint = Assert::greaterThanOrEqual(1);
 
         try {
             $constraint->evaluate(0, 'custom message');
+=======
+    public function testConstraintIsInstanceOf2()
+    {
+        $constraint = Assert::isInstanceOf(\Exception::class);
+
+        try {
+            $constraint->evaluate(new \stdClass, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that 0 is equal to 1 or is greater than 1.
+=======
+Failed asserting that stdClass Object () is an instance of class "Exception".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -456,6 +803,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintNotGreaterThanOrEqual()
     {
         $constraint = Assert::logicalNot(
@@ -472,6 +820,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that not( 1 is equal to 1 or is greater than 1 ).
+=======
+    public function testConstraintIsNotInstanceOf()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::isInstanceOf(\stdClass::class)
+        );
+
+        $this->assertFalse($constraint->evaluate(new \stdClass, '', true));
+        $this->assertTrue($constraint->evaluate(new Exception, '', true));
+        $this->assertEquals('is not instance of class "stdClass"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(new \stdClass);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that stdClass Object () is not an instance of class "stdClass".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -484,6 +851,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintNotGreaterThanOrEqual2()
     {
         $constraint = Assert::logicalNot(
@@ -492,11 +860,25 @@ EOF
 
         try {
             $constraint->evaluate(1, 'custom message');
+=======
+    public function testConstraintIsNotInstanceOf2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::isInstanceOf(\stdClass::class)
+        );
+
+        try {
+            $constraint->evaluate(new \stdClass, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that not( 1 is equal to 1 or is greater than 1 ).
+=======
+Failed asserting that stdClass Object () is not an instance of class "stdClass".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -509,6 +891,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintIsAnything()
     {
         $constraint = Assert::anything();
@@ -1924,6 +2307,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that object of class "ClassWithNonPublicAttributes" does not have attribute "privateAttribute".
+=======
+    public function testConstraintIsNotType()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::isType('string')
+        );
+
+        $this->assertTrue($constraint->evaluate(0, '', true));
+        $this->assertFalse($constraint->evaluate('', '', true));
+        $this->assertEquals('is not of type "string"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that '' is not of type "string".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -1936,6 +2338,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintObjectNotHasAttribute2()
     {
         $constraint = Assert::logicalNot(
@@ -1944,11 +2347,25 @@ EOF
 
         try {
             $constraint->evaluate(new \ClassWithNonPublicAttributes, 'custom message');
+=======
+    public function testConstraintIsNotType2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::isType('string')
+        );
+
+        try {
+            $constraint->evaluate('', 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that object of class "ClassWithNonPublicAttributes" does not have attribute "privateAttribute".
+=======
+Failed asserting that '' is not of type "string".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -1961,6 +2378,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintRegularExpression()
     {
         $constraint = Assert::matchesRegularExpression('/foo/');
@@ -1976,6 +2394,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that 'barbazbar' matches PCRE pattern "/foo/".
+=======
+    public function testConstraintIsNotNull()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::isNull()
+        );
+
+        $this->assertFalse($constraint->evaluate(null, '', true));
+        $this->assertTrue($constraint->evaluate(0, '', true));
+        $this->assertEquals('is not null', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(null);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that null is not null.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -1988,17 +2425,32 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintRegularExpression2()
     {
         $constraint = Assert::matchesRegularExpression('/foo/');
 
         try {
             $constraint->evaluate('barbazbar', 'custom message');
+=======
+    public function testConstraintIsNotNull2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::isNull()
+        );
+
+        try {
+            $constraint->evaluate(null, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that 'barbazbar' matches PCRE pattern "/foo/".
+=======
+Failed asserting that null is not null.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2011,6 +2463,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintPCRENotMatch()
     {
         $constraint = Assert::logicalNot(
@@ -2028,6 +2481,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that 'barfoobar' does not match PCRE pattern "/foo/".
+=======
+    public function testConstraintNotLessThan()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::lessThan(1)
+        );
+
+        $this->assertTrue($constraint->evaluate(1, '', true));
+        $this->assertFalse($constraint->evaluate(0, '', true));
+        $this->assertEquals('is not less than 1', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(0);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 0 is not less than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2040,6 +2512,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintPCRENotMatch2()
     {
         $constraint = Assert::logicalNot(
@@ -2048,11 +2521,25 @@ EOF
 
         try {
             $constraint->evaluate('barfoobar', 'custom message');
+=======
+    public function testConstraintNotLessThan2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::lessThan(1)
+        );
+
+        try {
+            $constraint->evaluate(0, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that 'barfoobar' does not match PCRE pattern "/foo/".
+=======
+Failed asserting that 0 is not less than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2065,6 +2552,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintStringMatches()
     {
         $constraint = Assert::matches('*%c*');
@@ -2134,6 +2622,23 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that 'foo' starts with "prefix".
+=======
+    public function testConstraintLessThanOrEqual()
+    {
+        $constraint = Assert::lessThanOrEqual(1);
+
+        $this->assertTrue($constraint->evaluate(1, '', true));
+        $this->assertFalse($constraint->evaluate(2, '', true));
+        $this->assertEquals('is equal to 1 or is less than 1', $constraint->toString());
+        $this->assertCount(2, $constraint);
+
+        try {
+            $constraint->evaluate(2);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 2 is equal to 1 or is less than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2146,6 +2651,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintStringStartsWith2()
     {
         $constraint = Assert::stringStartsWith('prefix');
@@ -2156,6 +2662,19 @@ EOF
             $this->assertEquals(
                 <<<EOF
 custom message\nFailed asserting that 'foo' starts with "prefix".
+=======
+    public function testConstraintLessThanOrEqual2()
+    {
+        $constraint = Assert::lessThanOrEqual(1);
+
+        try {
+            $constraint->evaluate(2, 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that 2 is equal to 1 or is less than 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2168,6 +2687,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintStringStartsNotWith()
     {
         $constraint = Assert::logicalNot(
@@ -2185,6 +2705,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that 'prefixfoo' starts not with "prefix".
+=======
+    public function testConstraintNotLessThanOrEqual()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::lessThanOrEqual(1)
+        );
+
+        $this->assertTrue($constraint->evaluate(2, '', true));
+        $this->assertFalse($constraint->evaluate(1, '', true));
+        $this->assertEquals('not( is equal to 1 or is less than 1 )', $constraint->toString());
+        $this->assertCount(2, $constraint);
+
+        try {
+            $constraint->evaluate(1);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that not( 1 is equal to 1 or is less than 1 ).
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2197,6 +2736,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintStringStartsNotWith2()
     {
         $constraint = Assert::logicalNot(
@@ -2285,11 +2825,25 @@ EOF
 
         try {
             $constraint->evaluate('barbazbar', 'custom message');
+=======
+    public function testConstraintNotLessThanOrEqual2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::lessThanOrEqual(1)
+        );
+
+        try {
+            $constraint->evaluate(1, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 <<<EOF
 custom message
+<<<<<<< HEAD
 Failed asserting that 'barbazbar' contains "foo".
+=======
+Failed asserting that not( 1 is equal to 1 or is less than 1 ).
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2302,6 +2856,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintStringNotContains()
     {
         $constraint = Assert::logicalNot(
@@ -2319,6 +2874,102 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that 'barfoobar' does not contain "foo".
+=======
+    public function testConstraintClassNotHasAttribute()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::classHasAttribute('privateAttribute')
+        );
+
+        $this->assertTrue($constraint->evaluate(\stdClass::class, '', true));
+        $this->assertFalse($constraint->evaluate(\ClassWithNonPublicAttributes::class, '', true));
+        $this->assertEquals('does not have attribute "privateAttribute"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(\ClassWithNonPublicAttributes::class);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that class "ClassWithNonPublicAttributes" does not have attribute "privateAttribute".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+<<<<<<< HEAD
+        $this->fail();
+    }
+
+    public function testConstraintStringNotContainsWhenIgnoreCase()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringContains('oryginał')
+        );
+
+        $this->assertTrue($constraint->evaluate('original', '', true));
+        $this->assertFalse($constraint->evaluate('ORYGINAŁ', '', true));
+        $this->assertFalse($constraint->evaluate('oryginał', '', true));
+        $this->assertEquals('does not contain "oryginał"', $constraint->toString());
+        $this->assertEquals(1, \count($constraint));
+
+        $this->expectException(ExpectationFailedException::class);
+
+        $constraint->evaluate('ORYGINAŁ');
+    }
+
+    public function testConstraintStringNotContainsForUtf8StringWhenNotIgnoreCase()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringContains('oryginał', false)
+        );
+
+        $this->assertTrue($constraint->evaluate('original', '', true));
+        $this->assertTrue($constraint->evaluate('ORYGINAŁ', '', true));
+        $this->assertFalse($constraint->evaluate('oryginał', '', true));
+        $this->assertEquals('does not contain "oryginał"', $constraint->toString());
+        $this->assertEquals(1, \count($constraint));
+
+        $this->expectException(ExpectationFailedException::class);
+
+        $constraint->evaluate('oryginał');
+    }
+
+    public function testConstraintStringNotContains2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringContains('foo')
+        );
+
+        try {
+            $constraint->evaluate('barfoobar', 'custom message');
+=======
+        $this->fail();
+    }
+
+    public function testConstraintClassNotHasAttribute2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::classHasAttribute('privateAttribute')
+        );
+
+        try {
+            $constraint->evaluate(\ClassWithNonPublicAttributes::class, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+<<<<<<< HEAD
+Failed asserting that 'barfoobar' does not contain "foo".
+=======
+Failed asserting that class "ClassWithNonPublicAttributes" does not have attribute "privateAttribute".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2331,6 +2982,433 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
+    public function testConstraintStringEndsWith()
+    {
+        $constraint = Assert::stringEndsWith('suffix');
+
+        $this->assertFalse($constraint->evaluate('foo', '', true));
+        $this->assertTrue($constraint->evaluate('foosuffix', '', true));
+        $this->assertEquals('ends with "suffix"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('foo');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 'foo' ends with "suffix".
+=======
+    public function testConstraintClassNotHasStaticAttribute()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::classHasStaticAttribute('privateStaticAttribute')
+        );
+
+        $this->assertTrue($constraint->evaluate(\stdClass::class, '', true));
+        $this->assertFalse($constraint->evaluate(\ClassWithNonPublicAttributes::class, '', true));
+        $this->assertEquals('does not have static attribute "privateStaticAttribute"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(\ClassWithNonPublicAttributes::class);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that class "ClassWithNonPublicAttributes" does not have static attribute "privateStaticAttribute".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintStringEndsWith2()
+    {
+        $constraint = Assert::stringEndsWith('suffix');
+
+        try {
+            $constraint->evaluate('foo', 'custom message');
+=======
+    public function testConstraintClassNotHasStaticAttribute2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::classHasStaticAttribute('privateStaticAttribute')
+        );
+
+        try {
+            $constraint->evaluate(\ClassWithNonPublicAttributes::class, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+<<<<<<< HEAD
+Failed asserting that 'foo' ends with "suffix".
+=======
+Failed asserting that class "ClassWithNonPublicAttributes" does not have static attribute "privateStaticAttribute".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintStringEndsNotWith()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringEndsWith('suffix')
+        );
+
+        $this->assertTrue($constraint->evaluate('foo', '', true));
+        $this->assertFalse($constraint->evaluate('foosuffix', '', true));
+        $this->assertEquals('ends not with "suffix"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('foosuffix');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 'foosuffix' ends not with "suffix".
+=======
+    public function testConstraintObjectNotHasAttribute()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::objectHasAttribute('privateAttribute')
+        );
+
+        $this->assertTrue($constraint->evaluate(new \stdClass, '', true));
+        $this->assertFalse($constraint->evaluate(new \ClassWithNonPublicAttributes, '', true));
+        $this->assertEquals('does not have attribute "privateAttribute"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(new \ClassWithNonPublicAttributes);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that object of class "ClassWithNonPublicAttributes" does not have attribute "privateAttribute".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintStringEndsNotWith2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringEndsWith('suffix')
+        );
+
+        try {
+            $constraint->evaluate('foosuffix', 'custom message');
+=======
+    public function testConstraintObjectNotHasAttribute2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::objectHasAttribute('privateAttribute')
+        );
+
+        try {
+            $constraint->evaluate(new \ClassWithNonPublicAttributes, 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+<<<<<<< HEAD
+Failed asserting that 'foosuffix' ends not with "suffix".
+=======
+Failed asserting that object of class "ClassWithNonPublicAttributes" does not have attribute "privateAttribute".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintArrayContainsCheckForObjectIdentity()
+    {
+        // Check for primitive type.
+        $constraint = new TraversableContains('foo', true, true);
+
+        $this->assertFalse($constraint->evaluate([0], '', true));
+        $this->assertFalse($constraint->evaluate([true], '', true));
+
+        // Default case.
+        $constraint = new TraversableContains('foo');
+
+        $this->assertTrue($constraint->evaluate([0], '', true));
+        $this->assertTrue($constraint->evaluate([true], '', true));
+    }
+
+    public function testConstraintArrayContains()
+    {
+        $constraint = new TraversableContains('foo');
+
+        $this->assertFalse($constraint->evaluate(['bar'], '', true));
+        $this->assertTrue($constraint->evaluate(['foo'], '', true));
+        $this->assertEquals("contains 'foo'", $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(['bar']);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that an array contains 'foo'.
+=======
+    public function testConstraintPCRENotMatch()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::matchesRegularExpression('/foo/')
+        );
+
+        $this->assertTrue($constraint->evaluate('barbazbar', '', true));
+        $this->assertFalse($constraint->evaluate('barfoobar', '', true));
+        $this->assertEquals('does not match PCRE pattern "/foo/"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('barfoobar');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 'barfoobar' does not match PCRE pattern "/foo/".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintArrayContains2()
+    {
+        $constraint = new TraversableContains('foo');
+
+        try {
+            $constraint->evaluate(['bar'], 'custom message');
+=======
+    public function testConstraintPCRENotMatch2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::matchesRegularExpression('/foo/')
+        );
+
+        try {
+            $constraint->evaluate('barfoobar', 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+<<<<<<< HEAD
+Failed asserting that an array contains 'foo'.
+=======
+Failed asserting that 'barfoobar' does not match PCRE pattern "/foo/".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintArrayNotContains()
+    {
+        $constraint = Assert::logicalNot(
+            new TraversableContains('foo')
+        );
+
+        $this->assertTrue($constraint->evaluate(['bar'], '', true));
+        $this->assertFalse($constraint->evaluate(['foo'], '', true));
+        $this->assertEquals("does not contain 'foo'", $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(['foo']);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that an array does not contain 'foo'.
+=======
+    public function testConstraintStringStartsNotWith()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringStartsWith('prefix')
+        );
+
+        $this->assertTrue($constraint->evaluate('foo', '', true));
+        $this->assertFalse($constraint->evaluate('prefixfoo', '', true));
+        $this->assertEquals('starts not with "prefix"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('prefixfoo');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 'prefixfoo' starts not with "prefix".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintArrayNotContains2()
+    {
+        $constraint = Assert::logicalNot(
+            new TraversableContains('foo')
+        );
+
+        try {
+            $constraint->evaluate(['foo'], 'custom message');
+=======
+    public function testConstraintStringStartsNotWith2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringStartsWith('prefix')
+        );
+
+        try {
+            $constraint->evaluate('prefixfoo', 'custom message');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+<<<<<<< HEAD
+Failed asserting that an array does not contain 'foo'.
+=======
+Failed asserting that 'prefixfoo' starts not with "prefix".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintSplObjectStorageContains()
+    {
+        $object     = new \stdClass;
+        $constraint = new TraversableContains($object);
+        $this->assertStringMatchesFormat('contains stdClass Object &%s ()', $constraint->toString());
+
+        $storage = new \SplObjectStorage;
+        $this->assertFalse($constraint->evaluate($storage, '', true));
+
+        $storage->attach($object);
+        $this->assertTrue($constraint->evaluate($storage, '', true));
+
+        try {
+            $constraint->evaluate(new \SplObjectStorage);
+        } catch (ExpectationFailedException $e) {
+            $this->assertStringMatchesFormat(
+                <<<EOF
+Failed asserting that a traversable contains stdClass Object &%x ().
+=======
+    public function testConstraintStringNotContains()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringContains('foo')
+        );
+
+        $this->assertTrue($constraint->evaluate('barbazbar', '', true));
+        $this->assertFalse($constraint->evaluate('barfoobar', '', true));
+        $this->assertEquals('does not contain "foo"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('barfoobar');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 'barfoobar' does not contain "foo".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
+
+EOF
+                ,
+                TestFailure::exceptionToString($e)
+            );
+
+            return;
+        }
+
+        $this->fail();
+    }
+
+<<<<<<< HEAD
+    public function testConstraintSplObjectStorageContains2()
+    {
+        $object     = new \stdClass;
+        $constraint = new TraversableContains($object);
+
+        try {
+            $constraint->evaluate(new \SplObjectStorage, 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertStringMatchesFormat(
+                <<<EOF
+custom message
+Failed asserting that a traversable contains stdClass Object &%x ().
+=======
     public function testConstraintStringNotContainsWhenIgnoreCase()
     {
         $constraint = Assert::logicalNot(
@@ -2378,6 +3456,7 @@ EOF
                 <<<EOF
 custom message
 Failed asserting that 'barfoobar' does not contain "foo".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2390,283 +3469,7 @@ EOF
         $this->fail();
     }
 
-    public function testConstraintStringEndsWith()
-    {
-        $constraint = Assert::stringEndsWith('suffix');
-
-        $this->assertFalse($constraint->evaluate('foo', '', true));
-        $this->assertTrue($constraint->evaluate('foosuffix', '', true));
-        $this->assertEquals('ends with "suffix"', $constraint->toString());
-        $this->assertCount(1, $constraint);
-
-        try {
-            $constraint->evaluate('foo');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-Failed asserting that 'foo' ends with "suffix".
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintStringEndsWith2()
-    {
-        $constraint = Assert::stringEndsWith('suffix');
-
-        try {
-            $constraint->evaluate('foo', 'custom message');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-custom message
-Failed asserting that 'foo' ends with "suffix".
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintStringEndsNotWith()
-    {
-        $constraint = Assert::logicalNot(
-            Assert::stringEndsWith('suffix')
-        );
-
-        $this->assertTrue($constraint->evaluate('foo', '', true));
-        $this->assertFalse($constraint->evaluate('foosuffix', '', true));
-        $this->assertEquals('ends not with "suffix"', $constraint->toString());
-        $this->assertCount(1, $constraint);
-
-        try {
-            $constraint->evaluate('foosuffix');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-Failed asserting that 'foosuffix' ends not with "suffix".
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintStringEndsNotWith2()
-    {
-        $constraint = Assert::logicalNot(
-            Assert::stringEndsWith('suffix')
-        );
-
-        try {
-            $constraint->evaluate('foosuffix', 'custom message');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-custom message
-Failed asserting that 'foosuffix' ends not with "suffix".
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintArrayContainsCheckForObjectIdentity()
-    {
-        // Check for primitive type.
-        $constraint = new TraversableContains('foo', true, true);
-
-        $this->assertFalse($constraint->evaluate([0], '', true));
-        $this->assertFalse($constraint->evaluate([true], '', true));
-
-        // Default case.
-        $constraint = new TraversableContains('foo');
-
-        $this->assertTrue($constraint->evaluate([0], '', true));
-        $this->assertTrue($constraint->evaluate([true], '', true));
-    }
-
-    public function testConstraintArrayContains()
-    {
-        $constraint = new TraversableContains('foo');
-
-        $this->assertFalse($constraint->evaluate(['bar'], '', true));
-        $this->assertTrue($constraint->evaluate(['foo'], '', true));
-        $this->assertEquals("contains 'foo'", $constraint->toString());
-        $this->assertCount(1, $constraint);
-
-        try {
-            $constraint->evaluate(['bar']);
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-Failed asserting that an array contains 'foo'.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintArrayContains2()
-    {
-        $constraint = new TraversableContains('foo');
-
-        try {
-            $constraint->evaluate(['bar'], 'custom message');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-custom message
-Failed asserting that an array contains 'foo'.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintArrayNotContains()
-    {
-        $constraint = Assert::logicalNot(
-            new TraversableContains('foo')
-        );
-
-        $this->assertTrue($constraint->evaluate(['bar'], '', true));
-        $this->assertFalse($constraint->evaluate(['foo'], '', true));
-        $this->assertEquals("does not contain 'foo'", $constraint->toString());
-        $this->assertCount(1, $constraint);
-
-        try {
-            $constraint->evaluate(['foo']);
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-Failed asserting that an array does not contain 'foo'.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintArrayNotContains2()
-    {
-        $constraint = Assert::logicalNot(
-            new TraversableContains('foo')
-        );
-
-        try {
-            $constraint->evaluate(['foo'], 'custom message');
-        } catch (ExpectationFailedException $e) {
-            $this->assertEquals(
-                <<<EOF
-custom message
-Failed asserting that an array does not contain 'foo'.
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintSplObjectStorageContains()
-    {
-        $object     = new \stdClass;
-        $constraint = new TraversableContains($object);
-        $this->assertStringMatchesFormat('contains stdClass Object &%s ()', $constraint->toString());
-
-        $storage = new \SplObjectStorage;
-        $this->assertFalse($constraint->evaluate($storage, '', true));
-
-        $storage->attach($object);
-        $this->assertTrue($constraint->evaluate($storage, '', true));
-
-        try {
-            $constraint->evaluate(new \SplObjectStorage);
-        } catch (ExpectationFailedException $e) {
-            $this->assertStringMatchesFormat(
-                <<<EOF
-Failed asserting that a traversable contains stdClass Object &%x ().
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
-    public function testConstraintSplObjectStorageContains2()
-    {
-        $object     = new \stdClass;
-        $constraint = new TraversableContains($object);
-
-        try {
-            $constraint->evaluate(new \SplObjectStorage, 'custom message');
-        } catch (ExpectationFailedException $e) {
-            $this->assertStringMatchesFormat(
-                <<<EOF
-custom message
-Failed asserting that a traversable contains stdClass Object &%x ().
-
-EOF
-                ,
-                TestFailure::exceptionToString($e)
-            );
-
-            return;
-        }
-
-        $this->fail();
-    }
-
+<<<<<<< HEAD
     public function testAttributeEqualTo()
     {
         $object     = new \ClassWithNonPublicAttributes;
@@ -2686,6 +3489,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that attribute "foo" is equal to 2.
+=======
+    public function testConstraintStringEndsNotWith()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringEndsWith('suffix')
+        );
+
+        $this->assertTrue($constraint->evaluate('foo', '', true));
+        $this->assertFalse($constraint->evaluate('foosuffix', '', true));
+        $this->assertEquals('ends not with "suffix"', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate('foosuffix');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that 'foosuffix' ends not with "suffix".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2698,6 +3520,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testAttributeEqualTo2()
     {
         $object     = new \ClassWithNonPublicAttributes;
@@ -2709,6 +3532,21 @@ EOF
             $this->assertEquals(
                 <<<EOF
 custom message\nFailed asserting that attribute "foo" is equal to 2.
+=======
+    public function testConstraintStringEndsNotWith2()
+    {
+        $constraint = Assert::logicalNot(
+            Assert::stringEndsWith('suffix')
+        );
+
+        try {
+            $constraint->evaluate('foosuffix', 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that 'foosuffix' ends not with "suffix".
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2721,6 +3559,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testAttributeNotEqualTo()
     {
         $object     = new \ClassWithNonPublicAttributes;
@@ -2744,6 +3583,25 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that attribute "foo" is not equal to 1.
+=======
+    public function testConstraintArrayNotContains()
+    {
+        $constraint = Assert::logicalNot(
+            new TraversableContains('foo')
+        );
+
+        $this->assertTrue($constraint->evaluate(['bar'], '', true));
+        $this->assertFalse($constraint->evaluate(['foo'], '', true));
+        $this->assertEquals("does not contain 'foo'", $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        try {
+            $constraint->evaluate(['foo']);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that an array does not contain 'foo'.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2756,6 +3614,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testAttributeNotEqualTo2()
     {
         $object     = new \ClassWithNonPublicAttributes;
@@ -2769,6 +3628,21 @@ EOF
             $this->assertEquals(
                 <<<EOF
 custom message\nFailed asserting that attribute "foo" is not equal to 1.
+=======
+    public function testConstraintArrayNotContains2()
+    {
+        $constraint = Assert::logicalNot(
+            new TraversableContains('foo')
+        );
+
+        try {
+            $constraint->evaluate(['foo'], 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message
+Failed asserting that an array does not contain 'foo'.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2781,6 +3655,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintIsEmpty()
     {
         $constraint = new IsEmpty;
@@ -2798,6 +3673,31 @@ EOF
             $this->assertEquals(
                 <<<EOF
 Failed asserting that an array is empty.
+=======
+    public function testAttributeNotEqualTo()
+    {
+        $object     = new \ClassWithNonPublicAttributes;
+        $constraint = Assert::logicalNot(
+            Assert::attributeEqualTo('foo', 2)
+        );
+
+        $this->assertTrue($constraint->evaluate($object, '', true));
+        $this->assertEquals('attribute "foo" is not equal to 2', $constraint->toString());
+        $this->assertCount(1, $constraint);
+
+        $constraint = Assert::logicalNot(
+            Assert::attributeEqualTo('foo', 1)
+        );
+
+        $this->assertFalse($constraint->evaluate($object, '', true));
+
+        try {
+            $constraint->evaluate($object);
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+Failed asserting that attribute "foo" is not equal to 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2810,6 +3710,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintIsEmpty2()
     {
         $constraint = new IsEmpty;
@@ -2820,6 +3721,21 @@ EOF
             $this->assertEquals(
                 <<<EOF
 custom message\nFailed asserting that an array is empty.
+=======
+    public function testAttributeNotEqualTo2()
+    {
+        $object     = new \ClassWithNonPublicAttributes;
+        $constraint = Assert::logicalNot(
+            Assert::attributeEqualTo('foo', 1)
+        );
+
+        try {
+            $constraint->evaluate($object, 'custom message');
+        } catch (ExpectationFailedException $e) {
+            $this->assertEquals(
+                <<<EOF
+custom message\nFailed asserting that attribute "foo" is not equal to 1.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 EOF
                 ,
@@ -2902,6 +3818,7 @@ EOF
         $this->fail();
     }
 
+<<<<<<< HEAD
     public function testConstraintSameSizeWithAnArray()
     {
         $constraint = new SameSize([1, 2, 3, 4, 5]);
@@ -2948,6 +3865,8 @@ EOF
         $this->fail();
     }
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function testConstraintNotSameSizeFailing()
     {
         $constraint = Assert::logicalNot(

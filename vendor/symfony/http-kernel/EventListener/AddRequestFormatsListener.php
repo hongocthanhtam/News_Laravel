@@ -34,8 +34,14 @@ class AddRequestFormatsListener implements EventSubscriberInterface
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
+<<<<<<< HEAD
         foreach ($this->formats as $format => $mimeTypes) {
             $event->getRequest()->setFormat($format, $mimeTypes);
+=======
+        $request = $event->getRequest();
+        foreach ($this->formats as $format => $mimeTypes) {
+            $request->setFormat($format, $mimeTypes);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
     }
 

@@ -158,6 +158,7 @@ class YamlFileLoader extends FileLoader
 
         $this->setCurrentDir(dirname($path));
 
+<<<<<<< HEAD
         $subCollection = $this->import($config['resource'], $type, false, $file);
         /* @var $subCollection RouteCollection */
         $subCollection->addPrefix($prefix);
@@ -178,6 +179,35 @@ class YamlFileLoader extends FileLoader
         $subCollection->addOptions($options);
 
         $collection->addCollection($subCollection);
+=======
+        $imported = $this->import($config['resource'], $type, false, $file);
+
+        if (!is_array($imported)) {
+            $imported = array($imported);
+        }
+
+        foreach ($imported as $subCollection) {
+            /* @var $subCollection RouteCollection */
+            $subCollection->addPrefix($prefix);
+            if (null !== $host) {
+                $subCollection->setHost($host);
+            }
+            if (null !== $condition) {
+                $subCollection->setCondition($condition);
+            }
+            if (null !== $schemes) {
+                $subCollection->setSchemes($schemes);
+            }
+            if (null !== $methods) {
+                $subCollection->setMethods($methods);
+            }
+            $subCollection->addDefaults($defaults);
+            $subCollection->addRequirements($requirements);
+            $subCollection->addOptions($options);
+
+            $collection->addCollection($subCollection);
+        }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**

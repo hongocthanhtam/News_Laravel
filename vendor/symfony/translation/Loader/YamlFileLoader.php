@@ -38,18 +38,24 @@ class YamlFileLoader extends FileLoader
             $this->yamlParser = new YamlParser();
         }
 
+<<<<<<< HEAD
         $prevErrorHandler = set_error_handler(function ($level, $message, $script, $line) use ($resource, &$prevErrorHandler) {
             $message = E_USER_DEPRECATED === $level ? preg_replace('/ on line \d+/', ' in "'.$resource.'"$0', $message) : $message;
 
             return $prevErrorHandler ? $prevErrorHandler($level, $message, $script, $line) : false;
         });
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         try {
             $messages = $this->yamlParser->parseFile($resource);
         } catch (ParseException $e) {
             throw new InvalidResourceException(sprintf('Error parsing YAML, invalid file "%s"', $resource), 0, $e);
+<<<<<<< HEAD
         } finally {
             restore_error_handler();
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
 
         return $messages;

@@ -81,7 +81,16 @@ class Serializer
             )
         );
 
+<<<<<<< HEAD
         $comment = "{$firstIndent}/**\n{$indent} * {$text}\n{$indent} *\n";
+=======
+        $comment = "{$firstIndent}/**\n";
+        if ($text) {
+            $comment .= "{$indent} * {$text}\n";
+            $comment .= "{$indent} *\n";
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $comment = $this->addTagBlock($docblock, $wrapLength, $indent, $comment);
         $comment .= $indent . ' */';
 

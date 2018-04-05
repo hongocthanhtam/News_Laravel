@@ -32,7 +32,11 @@ class NativeSessionHandlerTest extends TestCase
     {
         $handler = new NativeSessionHandler();
 
+<<<<<<< HEAD
         $this->assertTrue($handler instanceof \SessionHandler);
+=======
+        $this->assertInstanceOf('SessionHandler', $handler);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $this->assertTrue($handler instanceof NativeSessionHandler);
     }
 }

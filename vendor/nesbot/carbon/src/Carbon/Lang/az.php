@@ -24,8 +24,15 @@ return array(
     'min' => ':count dəqiqə',
     'second' => ':count saniyə',
     's' => ':count saniyə',
+<<<<<<< HEAD
     'ago' => ':time öncə',
     'from_now' => ':time sonra',
     'after' => ':time sonra',
     'before' => ':time öncə',
+=======
+    'ago' => ':time əvvəl',
+    'from_now' => ':time sonra',
+    'after' => ':time sonra',
+    'before' => ':time əvvəl',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 );

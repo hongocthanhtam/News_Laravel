@@ -13,12 +13,28 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "php": ">=5.3.0"
+=======
+        "php": ">=5.3.0",
+        "ext-mbstring": "*"
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8.35"
     },
     "autoload": {
         "psr-0": {"Parsedown": ""}
+<<<<<<< HEAD
+=======
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "TestParsedown": "test/",
+            "ParsedownTest": "test/",
+            "CommonMarkTest": "test/",
+            "CommonMarkTestWeak": "test/"
+        }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }

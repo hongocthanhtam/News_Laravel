@@ -10,8 +10,13 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "php": "^5.5.9|^7.0.8",
         "composer-plugin-api": "^1.1"
+=======
+        "php": "^5.5.9|^7.0.0",
+        "composer-plugin-api": "^1.0"
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     },
     "autoload": {
         "psr-4": {

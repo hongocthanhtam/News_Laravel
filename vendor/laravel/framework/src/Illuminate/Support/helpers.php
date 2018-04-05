@@ -553,6 +553,11 @@ if (! function_exists('dd')) {
      */
     function dd(...$args)
     {
+<<<<<<< HEAD
+=======
+        http_response_code(500);
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         foreach ($args as $x) {
             (new Dumper)->dump($x);
         }
@@ -566,15 +571,26 @@ if (! function_exists('e')) {
      * Escape HTML special characters in a string.
      *
      * @param  \Illuminate\Contracts\Support\Htmlable|string  $value
+<<<<<<< HEAD
      * @return string
      */
     function e($value)
+=======
+     * @param  bool  $doubleEncode
+     * @return string
+     */
+    function e($value, $doubleEncode = false)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         if ($value instanceof Htmlable) {
             return $value->toHtml();
         }
 
+<<<<<<< HEAD
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
+=======
+        return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', $doubleEncode);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }
 
@@ -717,7 +733,11 @@ if (! function_exists('optional')) {
      * @param  mixed  $value
      * @return mixed
      */
+<<<<<<< HEAD
     function optional($value)
+=======
+    function optional($value = null)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         return new Optional($value);
     }
@@ -864,7 +884,11 @@ if (! function_exists('str_is')) {
     /**
      * Determine if a given string matches a given pattern.
      *
+<<<<<<< HEAD
      * @param  string  $pattern
+=======
+     * @param  string|array  $pattern
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param  string  $value
      * @return bool
      */

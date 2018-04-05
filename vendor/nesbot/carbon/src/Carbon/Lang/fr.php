@@ -15,6 +15,7 @@ return array(
     'month' => ':count mois',
     'm' => ':count mois',
     'week' => '1 semaine|:count semaines',
+<<<<<<< HEAD
     'w' => '1 semaine|:count semaines',
     'day' => '1 jour|:count jours',
     'd' => '1 jour|:count jours',
@@ -24,6 +25,17 @@ return array(
     'min' => '1 minute|:count minutes',
     'second' => '1 seconde|:count secondes',
     's' => '1 seconde|:count secondes',
+=======
+    'w' => '1 sem.|:count sem.',
+    'day' => '1 jour|:count jours',
+    'd' => '1 j.|:count j.',
+    'hour' => '1 heure|:count heures',
+    'h' => '1 h|:count h.',
+    'minute' => '1 minute|:count minutes',
+    'min' => '1 min.|:count min.',
+    'second' => '1 seconde|:count secondes',
+    's' => '1 sec.|:count sec.',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'ago' => 'il y a :time',
     'from_now' => 'dans :time',
     'after' => ':time après',

@@ -126,6 +126,24 @@ class TestResponse
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Asserts that the response does not contains the given header.
+     *
+     * @param  string  $headerName
+     * @return $this
+     */
+    public function assertHeaderMissing($headerName)
+    {
+        PHPUnit::assertFalse(
+            $this->headers->has($headerName), "Unexpected header [{$headerName}] is present on response."
+        );
+
+        return $this;
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Asserts that the response contains the given cookie and equals the optional value.
      *
      * @param  string  $cookieName
@@ -461,8 +479,13 @@ class TestResponse
     public function assertJsonCount(int $count, $key = null)
     {
         if ($key) {
+<<<<<<< HEAD
             PHPUnit::assertCount($count,
                 $this->json()[$key],
+=======
+            PHPUnit::assertCount(
+                $count, data_get($this->json(), $key),
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 "Failed to assert that the response count matched the expected {$count}"
             );
 

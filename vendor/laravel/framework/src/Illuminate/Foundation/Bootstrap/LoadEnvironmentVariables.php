@@ -39,9 +39,17 @@ class LoadEnvironmentVariables
     protected function checkForSpecificEnvironmentFile($app)
     {
         if ($app->runningInConsole() && ($input = new ArgvInput)->hasParameterOption('--env')) {
+<<<<<<< HEAD
             $this->setEnvironmentFilePath(
                 $app, $app->environmentFile().'.'.$input->getParameterOption('--env')
             );
+=======
+            if ($this->setEnvironmentFilePath(
+                $app, $app->environmentFile().'.'.$input->getParameterOption('--env')
+            )) {
+                return;
+            }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
 
         if (! env('APP_ENV')) {
@@ -58,12 +66,24 @@ class LoadEnvironmentVariables
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @param  string  $file
+<<<<<<< HEAD
      * @return void
+=======
+     * @return bool
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     protected function setEnvironmentFilePath($app, $file)
     {
         if (file_exists($app->environmentPath().'/'.$file)) {
             $app->loadEnvironmentFrom($file);
+<<<<<<< HEAD
         }
+=======
+
+            return true;
+        }
+
+        return false;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }

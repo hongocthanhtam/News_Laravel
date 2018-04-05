@@ -19,6 +19,10 @@ namespace Symfony\Component\HttpFoundation\Session\Storage\Handler;
 class StrictSessionHandler extends AbstractSessionHandler
 {
     private $handler;
+<<<<<<< HEAD
+=======
+    private $doDestroy;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
     public function __construct(\SessionHandlerInterface $handler)
     {
@@ -66,8 +70,26 @@ class StrictSessionHandler extends AbstractSessionHandler
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     protected function doDestroy($sessionId)
     {
+=======
+    public function destroy($sessionId)
+    {
+        $this->doDestroy = true;
+        $destroyed = parent::destroy($sessionId);
+
+        return $this->doDestroy ? $this->doDestroy($sessionId) : $destroyed;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function doDestroy($sessionId)
+    {
+        $this->doDestroy = false;
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return $this->handler->destroy($sessionId);
     }
 

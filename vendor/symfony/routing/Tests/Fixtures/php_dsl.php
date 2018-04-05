@@ -4,6 +4,10 @@ namespace Symfony\Component\Routing\Loader\Configurator;
 
 return function (RoutingConfigurator $routes) {
     $routes
+<<<<<<< HEAD
+=======
+        ->collection()
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         ->add('foo', '/foo')
             ->condition('abc')
             ->options(array('utf8' => true))

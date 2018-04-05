@@ -480,7 +480,11 @@ class Builder
      * Add a basic where clause to the query.
      *
      * @param  string|array|\Closure  $column
+<<<<<<< HEAD
      * @param  string|null  $operator
+=======
+     * @param  mixed   $operator
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param  mixed   $value
      * @param  string  $boolean
      * @return $this
@@ -583,7 +587,11 @@ class Builder
      *
      * @throws \InvalidArgumentException
      */
+<<<<<<< HEAD
     protected function prepareValueAndOperator($value, $operator, $useDefault = false)
+=======
+    public function prepareValueAndOperator($value, $operator, $useDefault = false)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         if ($useDefault) {
             return [$operator, '='];
@@ -631,6 +639,13 @@ class Builder
      */
     public function orWhere($column, $operator = null, $value = null)
     {
+<<<<<<< HEAD
+=======
+        list($value, $operator) = $this->prepareValueAndOperator(
+            $value, $operator, func_num_args() == 2
+        );
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return $this->where($column, $operator, $value, 'or');
     }
 
@@ -985,6 +1000,13 @@ class Builder
      */
     public function orWhereDate($column, $operator, $value)
     {
+<<<<<<< HEAD
+=======
+        list($value, $operator) = $this->prepareValueAndOperator(
+            $value, $operator, func_num_args() == 2
+        );
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return $this->whereDate($column, $operator, $value, 'or');
     }
 
@@ -1012,6 +1034,13 @@ class Builder
      */
     public function orWhereTime($column, $operator, $value)
     {
+<<<<<<< HEAD
+=======
+        list($value, $operator) = $this->prepareValueAndOperator(
+            $value, $operator, func_num_args() == 2
+        );
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return $this->whereTime($column, $operator, $value, 'or');
     }
 
@@ -1947,6 +1976,19 @@ class Builder
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Determine if no rows exist for the current query.
+     *
+     * @return bool
+     */
+    public function doesntExist()
+    {
+        return ! $this->exists();
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Retrieve the "count" result of the query.
      *
      * @param  string  $columns

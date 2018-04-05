@@ -30,7 +30,11 @@ class Vue extends Preset
      */
     protected static function updatePackageArray(array $packages)
     {
+<<<<<<< HEAD
         return ['vue' => '^2.1.10'] + Arr::except($packages, [
+=======
+        return ['vue' => '^2.5.7'] + Arr::except($packages, [
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             'babel-preset-react',
             'react',
             'react-dom',

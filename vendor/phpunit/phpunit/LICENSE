@@ -1,6 +1,10 @@
 PHPUnit
 
+<<<<<<< HEAD
 Copyright (c) 2001-2017, Sebastian Bergmann <sebastian@phpunit.de>.
+=======
+Copyright (c) 2001-2018, Sebastian Bergmann <sebastian@phpunit.de>.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

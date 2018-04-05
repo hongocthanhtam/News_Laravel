@@ -27,7 +27,11 @@ abstract class AbstractPipes implements PipesInterface
     private $blocked = true;
 
     /**
+<<<<<<< HEAD
      * @param resource|scalar|\Iterator|null $input
+=======
+     * @param resource|string|int|float|bool|\Iterator|null $input
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function __construct($input)
     {

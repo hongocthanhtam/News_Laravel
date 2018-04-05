@@ -112,22 +112,36 @@ class AnnotationFileLoader extends FileLoader
             }
 
             if (T_CLASS === $token[0]) {
+<<<<<<< HEAD
                 // Skip usage of ::class constant
                 $isClassConstant = false;
+=======
+                // Skip usage of ::class constant and anonymous classes
+                $skipClassToken = false;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 for ($j = $i - 1; $j > 0; --$j) {
                     if (!isset($tokens[$j][1])) {
                         break;
                     }
 
+<<<<<<< HEAD
                     if (T_DOUBLE_COLON === $tokens[$j][0]) {
                         $isClassConstant = true;
+=======
+                    if (T_DOUBLE_COLON === $tokens[$j][0] || T_NEW === $tokens[$j][0]) {
+                        $skipClassToken = true;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                         break;
                     } elseif (!in_array($tokens[$j][0], array(T_WHITESPACE, T_DOC_COMMENT, T_COMMENT))) {
                         break;
                     }
                 }
 
+<<<<<<< HEAD
                 if (!$isClassConstant) {
+=======
+                if (!$skipClassToken) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                     $class = true;
                 }
             }

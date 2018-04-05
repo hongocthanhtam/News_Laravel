@@ -33,7 +33,11 @@ class XliffLintCommand extends Command
     private $directoryIteratorProvider;
     private $isReadableProvider;
 
+<<<<<<< HEAD
     public function __construct($name = null, $directoryIteratorProvider = null, $isReadableProvider = null)
+=======
+    public function __construct(string $name = null, callable $directoryIteratorProvider = null, callable $isReadableProvider = null)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         parent::__construct($name);
 

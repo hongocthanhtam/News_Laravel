@@ -36,7 +36,11 @@ interface Container extends ContainerInterface
     /**
      * Resolve all of the bindings for a given tag.
      *
+<<<<<<< HEAD
      * @param  array  $tag
+=======
+     * @param  string  $tag
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @return array
      */
     public function tagged($tag);
@@ -44,7 +48,11 @@ interface Container extends ContainerInterface
     /**
      * Register a binding with the container.
      *
+<<<<<<< HEAD
      * @param  string|array  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param  \Closure|string|null  $concrete
      * @param  bool  $shared
      * @return void
@@ -64,7 +72,11 @@ interface Container extends ContainerInterface
     /**
      * Register a shared binding in the container.
      *
+<<<<<<< HEAD
      * @param  string|array  $abstract
+=======
+     * @param  string  $abstract
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param  \Closure|string|null  $concrete
      * @return void
      */
@@ -136,7 +148,11 @@ interface Container extends ContainerInterface
     /**
      * Register a new resolving callback.
      *
+<<<<<<< HEAD
      * @param  string    $abstract
+=======
+     * @param  \Closure|string  $abstract
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param  \Closure|null  $callback
      * @return void
      */
@@ -145,7 +161,11 @@ interface Container extends ContainerInterface
     /**
      * Register a new after resolving callback.
      *
+<<<<<<< HEAD
      * @param  string    $abstract
+=======
+     * @param  \Closure|string  $abstract
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param  \Closure|null  $callback
      * @return void
      */

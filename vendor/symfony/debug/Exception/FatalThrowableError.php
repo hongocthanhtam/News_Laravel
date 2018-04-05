@@ -36,7 +36,12 @@ class FatalThrowableError extends FatalErrorException
             $e->getCode(),
             $severity,
             $e->getFile(),
+<<<<<<< HEAD
             $e->getLine()
+=======
+            $e->getLine(),
+            $e->getPrevious()
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         );
 
         $this->setTrace($e->getTrace());

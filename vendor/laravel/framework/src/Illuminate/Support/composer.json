@@ -18,10 +18,17 @@
         "ext-mbstring": "*",
         "doctrine/inflector": "~1.1",
         "illuminate/contracts": "5.5.*",
+<<<<<<< HEAD
         "nesbot/carbon": "^1.20"
     },
     "replace": {
         "tightenco/collect": "self.version"
+=======
+        "nesbot/carbon": "^1.24.1"
+    },
+    "replace": {
+        "tightenco/collect": "<5.5.33"
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     },
     "autoload": {
         "psr-4": {
@@ -37,7 +44,11 @@
         }
     },
     "suggest": {
+<<<<<<< HEAD
         "illuminate/filesystem": "Required to use the composer class (5.2.*).",
+=======
+        "illuminate/filesystem": "Required to use the composer class (5.5.*).",
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         "symfony/process": "Required to use the composer class (~3.3).",
         "symfony/var-dumper": "Required to use the dd function (~3.3)."
     },

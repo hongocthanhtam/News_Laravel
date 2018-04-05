@@ -22,6 +22,10 @@ use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\LazyProxy\ProxyHelper;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\TypedReference;
+<<<<<<< HEAD
+=======
+use Symfony\Component\HttpFoundation\Request;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 /**
  * Creates the service-locators required by ServiceValueResolver.
@@ -148,6 +152,13 @@ class RegisterControllerArgumentLocatorsPass implements CompilerPassInterface
                         continue;
                     }
 
+<<<<<<< HEAD
+=======
+                    if (Request::class === $type) {
+                        continue;
+                    }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                     if ($type && !$p->isOptional() && !$p->allowsNull() && !class_exists($type) && !interface_exists($type, false)) {
                         $message = sprintf('Cannot determine controller argument for "%s::%s()": the $%s argument is type-hinted with the non-existent class or interface: "%s".', $class, $r->name, $p->name, $type);
 

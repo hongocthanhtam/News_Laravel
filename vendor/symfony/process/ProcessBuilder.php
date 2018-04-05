@@ -167,7 +167,11 @@ class ProcessBuilder
     /**
      * Sets the input of the process.
      *
+<<<<<<< HEAD
      * @param resource|scalar|\Traversable|null $input The input content
+=======
+     * @param resource|string|int|float|bool|\Traversable|null $input The input content
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      *
      * @return $this
      *

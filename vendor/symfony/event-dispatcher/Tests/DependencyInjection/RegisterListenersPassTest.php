@@ -27,6 +27,7 @@ class RegisterListenersPassTest extends TestCase
      */
     public function testEventSubscriberWithoutInterface()
     {
+<<<<<<< HEAD
         // one service, not implementing any interface
         $services = array(
             'my_event_subscriber' => array(0 => array()),
@@ -50,6 +51,12 @@ class RegisterListenersPassTest extends TestCase
         $builder->expects($this->atLeastOnce())
             ->method('getDefinition')
             ->will($this->returnValue($definition));
+=======
+        $builder = new ContainerBuilder();
+        $builder->register('event_dispatcher');
+        $builder->register('my_event_subscriber', 'stdClass')
+            ->addTag('kernel.event_subscriber');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $registerListenersPass = new RegisterListenersPass();
         $registerListenersPass->process($builder);
@@ -61,6 +68,7 @@ class RegisterListenersPassTest extends TestCase
             'my_event_subscriber' => array(0 => array()),
         );
 
+<<<<<<< HEAD
         $definition = $this->getMockBuilder('Symfony\Component\DependencyInjection\Definition')->getMock();
         $definition->expects($this->atLeastOnce())
             ->method('getClass')
@@ -86,6 +94,27 @@ class RegisterListenersPassTest extends TestCase
 
         $registerListenersPass = new RegisterListenersPass();
         $registerListenersPass->process($builder);
+=======
+        $builder = new ContainerBuilder();
+        $eventDispatcherDefinition = $builder->register('event_dispatcher');
+        $builder->register('my_event_subscriber', 'Symfony\Component\EventDispatcher\Tests\DependencyInjection\SubscriberService')
+            ->addTag('kernel.event_subscriber');
+
+        $registerListenersPass = new RegisterListenersPass();
+        $registerListenersPass->process($builder);
+
+        $expectedCalls = array(
+            array(
+                'addListener',
+                array(
+                    'event',
+                    array(new ServiceClosureArgument(new Reference('my_event_subscriber')), 'onEvent'),
+                    0,
+                ),
+            ),
+        );
+        $this->assertEquals($expectedCalls, $eventDispatcherDefinition->getMethodCalls());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**

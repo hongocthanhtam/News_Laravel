@@ -2,6 +2,10 @@
 
 namespace Illuminate\Database\Console\Migrations;
 
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Str;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Illuminate\Support\Composer;
 use Illuminate\Database\Migrations\MigrationCreator;
 
@@ -63,7 +67,11 @@ class MigrateMakeCommand extends BaseCommand
         // It's possible for the developer to specify the tables to modify in this
         // schema operation. The developer may also specify if this table needs
         // to be freshly created so we can create the appropriate migrations.
+<<<<<<< HEAD
         $name = trim($this->input->getArgument('name'));
+=======
+        $name = Str::snake(trim($this->input->getArgument('name')));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $table = $this->input->getOption('table');
 

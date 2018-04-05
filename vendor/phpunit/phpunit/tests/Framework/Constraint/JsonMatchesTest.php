@@ -11,10 +11,16 @@
 namespace PHPUnit\Framework\Constraint;
 
 use PHPUnit\Framework\ExpectationFailedException;
+<<<<<<< HEAD
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Util\Json;
 
 class JsonMatchesTest extends TestCase
+=======
+use PHPUnit\Util\Json;
+
+class JsonMatchesTest extends ConstraintTestCase
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 {
     /**
      * @dataProvider evaluateDataprovider

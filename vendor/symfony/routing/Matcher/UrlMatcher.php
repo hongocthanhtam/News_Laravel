@@ -76,7 +76,11 @@ class UrlMatcher implements UrlMatcherInterface, RequestMatcherInterface
             return $ret;
         }
 
+<<<<<<< HEAD
         if (0 === count($this->routes) && '/' === $pathinfo) {
+=======
+        if ('/' === $pathinfo) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             throw new NoConfigurationException();
         }
 
@@ -135,6 +139,15 @@ class UrlMatcher implements UrlMatcherInterface, RequestMatcherInterface
                 continue;
             }
 
+<<<<<<< HEAD
+=======
+            $status = $this->handleRouteRequirements($pathinfo, $name, $route);
+
+            if (self::REQUIREMENT_MISMATCH === $status[0]) {
+                continue;
+            }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             // check HTTP method requirement
             if ($requiredMethods = $route->getMethods()) {
                 // HEAD and GET are equivalent as per RFC
@@ -143,18 +156,27 @@ class UrlMatcher implements UrlMatcherInterface, RequestMatcherInterface
                 }
 
                 if (!in_array($method, $requiredMethods)) {
+<<<<<<< HEAD
                     $this->allow = array_merge($this->allow, $requiredMethods);
+=======
+                    if (self::REQUIREMENT_MATCH === $status[0]) {
+                        $this->allow = array_merge($this->allow, $requiredMethods);
+                    }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
                     continue;
                 }
             }
 
+<<<<<<< HEAD
             $status = $this->handleRouteRequirements($pathinfo, $name, $route);
 
             if (self::REQUIREMENT_MISMATCH === $status[0]) {
                 continue;
             }
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             return $this->getAttributes($route, $name, array_replace($matches, $hostMatches, isset($status[1]) ? $status[1] : array()));
         }
     }

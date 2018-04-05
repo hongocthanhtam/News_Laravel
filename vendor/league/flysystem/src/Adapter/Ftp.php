@@ -185,7 +185,11 @@ class Ftp extends AbstractFtpAdapter
         $root = $this->getRoot();
         $connection = $this->connection;
 
+<<<<<<< HEAD
         if (isset($root) && ! ftp_chdir($connection, $root)) {
+=======
+        if ($root && ! ftp_chdir($connection, $root)) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             throw new RuntimeException('Root is invalid or does not exist: ' . $this->getRoot());
         }
 
@@ -311,14 +315,22 @@ class Ftp extends AbstractFtpAdapter
     public function deleteDir($dirname)
     {
         $connection = $this->getConnection();
+<<<<<<< HEAD
         $contents = array_reverse($this->listDirectoryContents($dirname));
+=======
+        $contents = array_reverse($this->listDirectoryContents($dirname, false));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         foreach ($contents as $object) {
             if ($object['type'] === 'file') {
                 if ( ! ftp_delete($connection, $object['path'])) {
                     return false;
                 }
+<<<<<<< HEAD
             } elseif ( ! ftp_rmdir($connection, $object['path'])) {
+=======
+            } elseif ( ! $this->deleteDir($object['path'])) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 return false;
             }
         }
@@ -507,6 +519,7 @@ class Ftp extends AbstractFtpAdapter
      */
     protected function listDirectoryContentsRecursive($directory)
     {
+<<<<<<< HEAD
         $listing = $this->normalizeListing($this->ftpRawlist('-aln', $directory) ?: []);
         $output = [];
 
@@ -515,6 +528,15 @@ class Ftp extends AbstractFtpAdapter
             if ($directory['type'] !== 'dir') continue;
 
             $output = array_merge($output, $this->listDirectoryContentsRecursive($directory['path']));
+=======
+        $listing = $this->normalizeListing($this->ftpRawlist('-aln', $directory) ?: [], $directory);
+        $output = [];
+
+        foreach ($listing as $item) {
+            $output[] = $item;
+            if ($item['type'] !== 'dir') continue;
+            $output = array_merge($output, $this->listDirectoryContentsRecursive($item['path']));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
 
         return $output;
@@ -529,7 +551,11 @@ class Ftp extends AbstractFtpAdapter
     public function isConnected()
     {
         try {
+<<<<<<< HEAD
             return is_resource($this->connection) && ftp_rawlist($this->connection, '/') !== false;
+=======
+            return is_resource($this->connection) && ftp_rawlist($this->connection, $this->getRoot()) !== false;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } catch (ErrorException $e) {
             if (strpos($e->getMessage(), 'ftp_rawlist') === false) {
                 throw $e;
@@ -540,7 +566,11 @@ class Ftp extends AbstractFtpAdapter
     }
 
     /**
+<<<<<<< HEAD
      * @return null|string
+=======
+     * @return bool
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     protected function isPureFtpdServer()
     {

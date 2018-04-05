@@ -557,6 +557,15 @@ if (! function_exists('mix')) {
         }
 
         if (file_exists(public_path($manifestDirectory.'/hot'))) {
+<<<<<<< HEAD
+=======
+            $url = file_get_contents(public_path($manifestDirectory.'/hot'));
+
+            if (Str::startsWith($url, ['http://', 'https://'])) {
+                return new HtmlString(Str::after($url, ':').$path);
+            }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             return new HtmlString("//localhost:8080{$path}");
         }
 
@@ -772,9 +781,15 @@ if (! function_exists('route')) {
     /**
      * Generate the URL to a named route.
      *
+<<<<<<< HEAD
      * @param  string  $name
      * @param  array   $parameters
      * @param  bool    $absolute
+=======
+     * @param  array|string  $name
+     * @param  array  $parameters
+     * @param  bool  $absolute
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @return string
      */
     function route($name, $parameters = [], $absolute = true)

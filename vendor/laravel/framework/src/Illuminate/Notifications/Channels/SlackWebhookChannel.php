@@ -82,6 +82,12 @@ class SlackWebhookChannel
     {
         return collect($message->attachments)->map(function ($attachment) use ($message) {
             return array_filter([
+<<<<<<< HEAD
+=======
+                'author_icon' => $attachment->authorIcon,
+                'author_link' => $attachment->authorLink,
+                'author_name' => $attachment->authorName,
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 'color' => $attachment->color ?: $message->color(),
                 'fallback' => $attachment->fallback,
                 'fields' => $this->fields($attachment),

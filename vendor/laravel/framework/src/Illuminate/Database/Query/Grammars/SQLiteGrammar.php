@@ -115,6 +115,21 @@ class SQLiteGrammar extends Grammar
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Compile a "where time" clause.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  array  $where
+     * @return string
+     */
+    protected function whereTime(Builder $query, $where)
+    {
+        return $this->dateBasedWhere('%H:%M:%S', $query, $where);
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Compile a date based where clause.
      *
      * @param  string  $type

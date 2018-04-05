@@ -32,7 +32,11 @@ class Version
         }
 
         if (self::$version === null) {
+<<<<<<< HEAD
             $version       = new VersionId('6.5.5', \dirname(\dirname(__DIR__)));
+=======
+            $version       = new VersionId('6.5.7', \dirname(\dirname(__DIR__)));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             self::$version = $version->getVersion();
         }
 

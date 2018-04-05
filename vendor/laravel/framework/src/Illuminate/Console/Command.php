@@ -510,7 +510,11 @@ class Command extends SymfonyCommand
         $this->comment('*     '.$string.'     *');
         $this->comment(str_repeat('*', strlen($string) + 12));
 
+<<<<<<< HEAD
         $this->output->writeln('');
+=======
+        $this->output->newLine();
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**

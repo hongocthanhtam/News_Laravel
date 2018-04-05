@@ -2,7 +2,11 @@
 
 namespace League\Flysystem\Util;
 
+<<<<<<< HEAD
 use Finfo;
+=======
+use finfo;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use ErrorException;
 
 /**
@@ -19,6 +23,7 @@ class MimeType
      */
     public static function detectByContent($content)
     {
+<<<<<<< HEAD
         if ( ! class_exists('Finfo') || ! is_string($content)) {
             return;
         }
@@ -30,6 +35,20 @@ class MimeType
             // This is caused by an array to string conversion error.
         }
     }
+=======
+        if ( ! class_exists('finfo') || ! is_string($content)) {
+            return null;
+        }
+        try {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+
+            return $finfo->buffer($content) ?: null;
+        // @codeCoverageIgnoreStart
+        } catch( ErrorException $e ) {
+            // This is caused by an array to string conversion error.
+        }
+    } // @codeCoverageIgnoreEnd
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
     /**
      * Detects MIME Type based on file extension.
@@ -56,7 +75,11 @@ class MimeType
     /**
      * @param string $filename
      *
+<<<<<<< HEAD
      * @return string
+=======
+     * @return string|null MIME Type or NULL if no extension detected
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public static function detectByFilename($filename)
     {
@@ -153,6 +176,11 @@ class MimeType
             'rtf'   => 'text/rtf',
             'xml'   => 'application/xml',
             'xsl'   => 'application/xml',
+<<<<<<< HEAD
+=======
+            'dmn'   => 'application/octet-stream',
+            'bpmn'  => 'application/octet-stream',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             'mpeg'  => 'video/mpeg',
             'mpg'   => 'video/mpeg',
             'mpe'   => 'video/mpeg',

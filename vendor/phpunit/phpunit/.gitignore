@@ -1,5 +1,10 @@
 /.ant_targets
 /.idea
+<<<<<<< HEAD
+=======
+/.php_cs
+/.php_cs.cache
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 /build/documentation
 /build/logfiles
 /build/phar
@@ -7,12 +12,22 @@
 /build/*.phar
 /build/*.phar.asc
 /build/binary-phar-autoload.php
+<<<<<<< HEAD
+=======
+/cache.properties
+/composer.lock
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 /tests/TextUI/*.diff
 /tests/TextUI/*.exp
 /tests/TextUI/*.log
 /tests/TextUI/*.out
 /tests/TextUI/*.php
+<<<<<<< HEAD
 /cache.properties
 /composer.lock
 /vendor
 /.php_cs.cache
+=======
+/vendor
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a

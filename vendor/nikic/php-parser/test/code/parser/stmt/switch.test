@@ -4,6 +4,11 @@ Switch
 
 switch ($a) {
     case 0:
+<<<<<<< HEAD
+=======
+        break;
+    // Comment
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     case 1;
     default:
 }
@@ -27,6 +32,12 @@ array(
                     value: 0
                 )
                 stmts: array(
+<<<<<<< HEAD
+=======
+                    0: Stmt_Break(
+                        num: null
+                    )
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 )
             )
             1: Stmt_Case(
@@ -35,6 +46,12 @@ array(
                 )
                 stmts: array(
                 )
+<<<<<<< HEAD
+=======
+                comments: array(
+                    0: // Comment
+                )
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             )
             2: Stmt_Case(
                 cond: null

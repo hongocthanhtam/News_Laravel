@@ -7,6 +7,7 @@ use InvalidArgumentException;
 class JsonExpression extends Expression
 {
     /**
+<<<<<<< HEAD
      * The value of the expression.
      *
      * @var mixed
@@ -14,6 +15,8 @@ class JsonExpression extends Expression
     protected $value;
 
     /**
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Create a new raw query expression.
      *
      * @param  mixed  $value
@@ -21,7 +24,13 @@ class JsonExpression extends Expression
      */
     public function __construct($value)
     {
+<<<<<<< HEAD
         $this->value = $this->getJsonBindingParameter($value);
+=======
+        parent::__construct(
+            $this->getJsonBindingParameter($value)
+        );
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**
@@ -47,6 +56,7 @@ class JsonExpression extends Expression
 
         throw new InvalidArgumentException('JSON value is of illegal type: '.$type);
     }
+<<<<<<< HEAD
 
     /**
      * Get the value of the expression.
@@ -67,4 +77,6 @@ class JsonExpression extends Expression
     {
         return (string) $this->getValue();
     }
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 }

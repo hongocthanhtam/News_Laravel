@@ -849,14 +849,22 @@ EOF;
         $kernel = new CustomProjectDirKernel();
         $kernel->boot();
 
+<<<<<<< HEAD
         $this->assertSame($containerClass, get_class($kernel->getContainer()));
+=======
+        $this->assertInstanceOf($containerClass, $kernel->getContainer());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $this->assertFileExists($containerFile);
         unlink(__DIR__.'/Fixtures/cache/custom/FixturesCustomDebugProjectContainer.php.meta');
 
         $kernel = new CustomProjectDirKernel(function ($container) { $container->register('foo', 'stdClass')->setPublic(true); });
         $kernel->boot();
 
+<<<<<<< HEAD
         $this->assertTrue(get_class($kernel->getContainer()) !== $containerClass);
+=======
+        $this->assertNotInstanceOf($containerClass, $kernel->getContainer());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $this->assertFileExists($containerFile);
         $this->assertFileExists(dirname($containerFile).'.legacy');
     }

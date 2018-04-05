@@ -340,7 +340,11 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
 
         while ($item = array_shift($listing)) {
             if (preg_match('#^.*:$#', $item)) {
+<<<<<<< HEAD
                 $base = trim($item, ':');
+=======
+                $base = preg_replace('~^\./*|:$~', '', $item);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 continue;
             }
 
@@ -521,11 +525,15 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     public function removeDotDirectories(array $list)
     {
         $filter = function ($line) {
+<<<<<<< HEAD
             if ( $line !== '' && ! preg_match('#.* \.(\.)?$|^total#', $line)) {
                 return true;
             }
 
             return false;
+=======
+            return $line !== '' && ! preg_match('#.* \.(\.)?$|^total#', $line);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         };
 
         return array_filter($list, $filter);

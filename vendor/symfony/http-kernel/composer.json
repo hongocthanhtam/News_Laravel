@@ -18,7 +18,11 @@
     "require": {
         "php": "^5.5.9|>=7.0.8",
         "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
+<<<<<<< HEAD
         "symfony/http-foundation": "^3.3.11|~4.0",
+=======
+        "symfony/http-foundation": "^3.4.4|^4.0.4",
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         "symfony/debug": "~2.8|~3.0|~4.0",
         "psr/log": "~1.0"
     },
@@ -28,7 +32,11 @@
         "symfony/config": "~2.8|~3.0|~4.0",
         "symfony/console": "~2.8|~3.0|~4.0",
         "symfony/css-selector": "~2.8|~3.0|~4.0",
+<<<<<<< HEAD
         "symfony/dependency-injection": "~3.4|~4.0",
+=======
+        "symfony/dependency-injection": "^3.4.5|^4.0.5",
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         "symfony/dom-crawler": "~2.8|~3.0|~4.0",
         "symfony/expression-language": "~2.8|~3.0|~4.0",
         "symfony/finder": "~2.8|~3.0|~4.0",
@@ -45,7 +53,11 @@
     },
     "conflict": {
         "symfony/config": "<2.8",
+<<<<<<< HEAD
         "symfony/dependency-injection": "<3.4",
+=======
+        "symfony/dependency-injection": "<3.4.5|<4.0.5,>=4",
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         "symfony/var-dumper": "<3.3",
         "twig/twig": "<1.34|<2.4,>=2"
     },

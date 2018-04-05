@@ -52,18 +52,32 @@ class RequestTest extends TestCase
 
     public function testGetUser()
     {
+<<<<<<< HEAD
         $request = Request::create('http://user_test:password_test@test.com/');
         $user = $request->getUser();
 
         $this->assertEquals('user_test', $user);
+=======
+        $request = Request::create('http://user:password@test.com');
+        $user = $request->getUser();
+
+        $this->assertEquals('user', $user);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function testGetPassword()
     {
+<<<<<<< HEAD
         $request = Request::create('http://user_test:password_test@test.com/');
         $password = $request->getPassword();
 
         $this->assertEquals('password_test', $password);
+=======
+        $request = Request::create('http://user:password@test.com');
+        $password = $request->getPassword();
+
+        $this->assertEquals('password', $password);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function testIsNoCache()
@@ -1523,8 +1537,23 @@ class RequestTest extends TestCase
         $request = new Request();
 
         $request->headers->set('Accept-language', 'zh, en-us; q=0.8, en; q=0.6');
+<<<<<<< HEAD
 
         $this->assertContains('Accept-Language: zh, en-us; q=0.8, en; q=0.6', $request->__toString());
+=======
+        $request->cookies->set('Foo', 'Bar');
+
+        $asString = (string) $request;
+
+        $this->assertContains('Accept-Language: zh, en-us; q=0.8, en; q=0.6', $asString);
+        $this->assertContains('Cookie: Foo=Bar', $asString);
+
+        $request->cookies->set('Another', 'Cookie');
+
+        $asString = (string) $request;
+
+        $this->assertContains('Cookie: Foo=Bar; Another=Cookie', $asString);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function testIsMethod()
@@ -2138,11 +2167,19 @@ class RequestTest extends TestCase
     /**
      * @dataProvider methodCacheableProvider
      */
+<<<<<<< HEAD
     public function testMethodCacheable($method, $chacheable)
     {
         $request = new Request();
         $request->setMethod($method);
         $this->assertEquals($chacheable, $request->isMethodCacheable());
+=======
+    public function testMethodCacheable($method, $cacheable)
+    {
+        $request = new Request();
+        $request->setMethod($method);
+        $this->assertEquals($cacheable, $request->isMethodCacheable());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function methodCacheableProvider()
@@ -2306,7 +2343,11 @@ class RequestContentProxy extends Request
 {
     public function getContent($asResource = false)
     {
+<<<<<<< HEAD
         return http_build_query(array('_method' => 'PUT', 'content' => 'mycontent'));
+=======
+        return http_build_query(array('_method' => 'PUT', 'content' => 'mycontent'), '', '&');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }
 

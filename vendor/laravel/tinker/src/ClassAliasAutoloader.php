@@ -50,11 +50,25 @@ class ClassAliasAutoloader
 
         $classes = require $classMapPath;
 
+<<<<<<< HEAD
+=======
+        $excludedAliases = collect(config('tinker.dont_alias', []));
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         foreach ($classes as $class => $path) {
             if (! Str::contains($class, '\\') || Str::startsWith($path, $vendorPath)) {
                 continue;
             }
 
+<<<<<<< HEAD
+=======
+            if (! $excludedAliases->filter(function ($alias) use ($class) {
+                return Str::startsWith($class, $alias);
+            })->isEmpty()) {
+                continue;
+            }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $name = class_basename($class);
 
             if (! isset($this->classes[$name])) {

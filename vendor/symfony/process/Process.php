@@ -331,7 +331,13 @@ class Process implements \IteratorAggregate
         } else {
             $envPairs = array();
             foreach ($env as $k => $v) {
+<<<<<<< HEAD
                 $envPairs[] = $k.'='.$v;
+=======
+                if (false !== $v) {
+                    $envPairs[] = $k.'='.$v;
+                }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
         }
 
@@ -1123,7 +1129,11 @@ class Process implements \IteratorAggregate
     /**
      * Sets the environment variables.
      *
+<<<<<<< HEAD
      * An environment variable value should be a string.
+=======
+     * Each environment variable value should be a string.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * If it is an array, the variable is ignored.
      * If it is false or null, it will be removed when
      * env vars are otherwise inherited.
@@ -1162,7 +1172,11 @@ class Process implements \IteratorAggregate
      *
      * This content will be passed to the underlying process standard input.
      *
+<<<<<<< HEAD
      * @param resource|scalar|\Traversable|null $input The content
+=======
+     * @param string|int|float|bool|resource|\Traversable|null $input The content
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      *
      * @return self The current Process instance
      *

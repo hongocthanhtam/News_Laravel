@@ -175,6 +175,10 @@ class TestCaseTest extends TestCase
         $this->assertTrue($test->testSomething);
         $this->assertTrue($test->assertPostConditions);
         $this->assertTrue($test->tearDown);
+<<<<<<< HEAD
+=======
+        $this->assertEquals(BaseTestRunner::STATUS_ERROR, $test->getStatus());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function testNoArgTestCasePasses()

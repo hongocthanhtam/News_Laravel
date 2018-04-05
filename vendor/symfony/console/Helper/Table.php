@@ -454,11 +454,22 @@ class Table
      * @param int   $line
      *
      * @return array
+<<<<<<< HEAD
+=======
+     *
+     * @throws InvalidArgumentException
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     private function fillNextRows(array $rows, $line)
     {
         $unmergedRows = array();
         foreach ($rows[$line] as $column => $cell) {
+<<<<<<< HEAD
+=======
+            if (null !== $cell && !$cell instanceof TableCell && !is_scalar($cell) && !(is_object($cell) && method_exists($cell, '__toString'))) {
+                throw new InvalidArgumentException(sprintf('A cell must be a TableCell, a scalar or an object implementing __toString, %s given.', gettype($cell)));
+            }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             if ($cell instanceof TableCell && $cell->getRowspan() > 1) {
                 $nbLines = $cell->getRowspan() - 1;
                 $lines = array($cell);

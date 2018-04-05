@@ -20,6 +20,19 @@ namespace Prophecy\Doubler\Generator;
 class ClassCodeGenerator
 {
     /**
+<<<<<<< HEAD
+=======
+     * @var TypeHintReference
+     */
+    private $typeHintReference;
+
+    public function __construct(TypeHintReference $typeHintReference = null)
+    {
+        $this->typeHintReference = $typeHintReference ?: new TypeHintReference();
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Generates PHP code for class node.
      *
      * @param string         $classname
@@ -91,7 +104,12 @@ class ClassCodeGenerator
 
     private function generateArguments(array $arguments)
     {
+<<<<<<< HEAD
         return array_map(function (Node\ArgumentNode $argument) {
+=======
+        $typeHintReference = $this->typeHintReference;
+        return array_map(function (Node\ArgumentNode $argument) use ($typeHintReference) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $php = '';
 
             if (version_compare(PHP_VERSION, '7.1', '>=')) {
@@ -99,6 +117,7 @@ class ClassCodeGenerator
             }
 
             if ($hint = $argument->getTypeHint()) {
+<<<<<<< HEAD
                 switch ($hint) {
                     case 'array':
                     case 'callable':
@@ -127,6 +146,9 @@ class ClassCodeGenerator
                     default:
                         $php .= '\\'.$hint;
                 }
+=======
+                $php .= $typeHintReference->isBuiltInParamTypeHint($hint) ? $hint : '\\'.$hint;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
 
             $php .= ' '.($argument->isPassedByReference() ? '&' : '');

@@ -7,7 +7,11 @@ use League\Flysystem\AdapterInterface;
 abstract class AbstractAdapter implements AdapterInterface
 {
     /**
+<<<<<<< HEAD
      * @var string path prefix
+=======
+     * @var string|null path prefix
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     protected $pathPrefix;
 
@@ -38,7 +42,11 @@ abstract class AbstractAdapter implements AdapterInterface
     /**
      * Get the path prefix.
      *
+<<<<<<< HEAD
      * @return string path prefix
+=======
+     * @return string|null path prefix or null if pathPrefix is empty
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getPathPrefix()
     {

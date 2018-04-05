@@ -12,6 +12,10 @@
 namespace Symfony\Component\Translation\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
+<<<<<<< HEAD
+=======
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Translation\DependencyInjection\TranslationExtractorPass;
 
@@ -19,6 +23,7 @@ class TranslationExtractorPassTest extends TestCase
 {
     public function testProcess()
     {
+<<<<<<< HEAD
         $definition = $this->getMockBuilder('Symfony\Component\DependencyInjection\Definition')->disableOriginalConstructor()->getMock();
         $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->disableOriginalConstructor()->getMock();
 
@@ -46,10 +51,22 @@ class TranslationExtractorPassTest extends TestCase
 
         $translationDumperPass = new TranslationExtractorPass();
         $translationDumperPass->process($container);
+=======
+        $container = new ContainerBuilder();
+        $extractorDefinition = $container->register('translation.extractor');
+        $container->register('foo.id')
+            ->addTag('translation.extractor', array('alias' => 'bar.alias'));
+
+        $translationDumperPass = new TranslationExtractorPass();
+        $translationDumperPass->process($container);
+
+        $this->assertEquals(array(array('addExtractor', array('bar.alias', new Reference('foo.id')))), $extractorDefinition->getMethodCalls());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function testProcessNoDefinitionFound()
     {
+<<<<<<< HEAD
         $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->disableOriginalConstructor()->getMock();
 
         $container->expects($this->once())
@@ -62,6 +79,19 @@ class TranslationExtractorPassTest extends TestCase
 
         $translationDumperPass = new TranslationExtractorPass();
         $translationDumperPass->process($container);
+=======
+        $container = new ContainerBuilder();
+
+        $definitionsBefore = count($container->getDefinitions());
+        $aliasesBefore = count($container->getAliases());
+
+        $translationDumperPass = new TranslationExtractorPass();
+        $translationDumperPass->process($container);
+
+        // the container is untouched (i.e. no new definitions or aliases)
+        $this->assertCount($definitionsBefore, $container->getDefinitions());
+        $this->assertCount($aliasesBefore, $container->getAliases());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**
@@ -71,6 +101,7 @@ class TranslationExtractorPassTest extends TestCase
     public function testProcessMissingAlias()
     {
         $definition = $this->getMockBuilder('Symfony\Component\DependencyInjection\Definition')->disableOriginalConstructor()->getMock();
+<<<<<<< HEAD
         $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->disableOriginalConstructor()->getMock();
 
         $container->expects($this->once())
@@ -90,6 +121,12 @@ class TranslationExtractorPassTest extends TestCase
             ->method('findTaggedServiceIds')
             ->with('translation.extractor', true)
             ->will($this->returnValue($valueTaggedServiceIdsFound));
+=======
+        $container = new ContainerBuilder();
+        $container->register('translation.extractor');
+        $container->register('foo.id')
+            ->addTag('translation.extractor', array());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $definition->expects($this->never())->method('addMethodCall');
 

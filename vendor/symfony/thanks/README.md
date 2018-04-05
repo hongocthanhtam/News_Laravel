@@ -2,7 +2,11 @@
     <img src="https://symfony.com/logos/symfony_black_02.svg">
 </a></p>
 
+<<<<<<< HEAD
 Give thanks (in the form of a [GitHub ⭐](https://help.github.com/articles/about-stars/)) to your fellow PHP package maintainers (not limited to Symfony components)!
+=======
+Give thanks (in the form of a [GitHub ★ ](https://help.github.com/articles/about-stars/)) to your fellow PHP package maintainers (not limited to Symfony components)!
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 Install
 -------

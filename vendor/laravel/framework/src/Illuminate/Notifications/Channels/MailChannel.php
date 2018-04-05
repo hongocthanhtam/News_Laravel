@@ -84,7 +84,11 @@ class MailChannel
      * Build the notification's view.
      *
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message
+<<<<<<< HEAD
      * @return void
+=======
+     * @return string|array
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     protected function buildView($message)
     {

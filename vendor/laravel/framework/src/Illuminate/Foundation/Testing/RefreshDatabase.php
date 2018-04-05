@@ -75,7 +75,14 @@ trait RefreshDatabase
 
         $this->beforeApplicationDestroyed(function () use ($database) {
             foreach ($this->connectionsToTransact() as $name) {
+<<<<<<< HEAD
                 $database->connection($name)->rollBack();
+=======
+                $connection = $database->connection($name);
+
+                $connection->rollBack();
+                $connection->disconnect();
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
         });
     }

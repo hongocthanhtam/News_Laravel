@@ -250,6 +250,24 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Qualify the given column name by the model's table.
+     *
+     * @param  string  $column
+     * @return string
+     */
+    public function qualifyColumn($column)
+    {
+        if (Str::contains($column, '.')) {
+            return $column;
+        }
+
+        return $this->getTable().'.'.$column;
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Remove the table name from a given key.
      *
      * @param  string  $key
@@ -1206,7 +1224,11 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
      */
     public function getQualifiedKeyName()
     {
+<<<<<<< HEAD
         return $this->getTable().'.'.$this->getKeyName();
+=======
+        return $this->qualifyColumn($this->getKeyName());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**

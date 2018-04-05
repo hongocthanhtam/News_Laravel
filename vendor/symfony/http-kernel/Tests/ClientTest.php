@@ -97,6 +97,10 @@ class ClientTest extends TestCase
     public function testUploadedFile()
     {
         $source = tempnam(sys_get_temp_dir(), 'source');
+<<<<<<< HEAD
+=======
+        file_put_contents($source, '1');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $target = sys_get_temp_dir().'/sf.moved.file';
         @unlink($target);
 
@@ -104,8 +108,13 @@ class ClientTest extends TestCase
         $client = new Client($kernel);
 
         $files = array(
+<<<<<<< HEAD
             array('tmp_name' => $source, 'name' => 'original', 'type' => 'mime/original', 'size' => 123, 'error' => UPLOAD_ERR_OK),
             new UploadedFile($source, 'original', 'mime/original', 123, UPLOAD_ERR_OK, true),
+=======
+            array('tmp_name' => $source, 'name' => 'original', 'type' => 'mime/original', 'size' => 1, 'error' => UPLOAD_ERR_OK),
+            new UploadedFile($source, 'original', 'mime/original', 1, UPLOAD_ERR_OK, true),
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         );
 
         $file = null;
@@ -120,7 +129,11 @@ class ClientTest extends TestCase
 
             $this->assertEquals('original', $file->getClientOriginalName());
             $this->assertEquals('mime/original', $file->getClientMimeType());
+<<<<<<< HEAD
             $this->assertEquals('123', $file->getClientSize());
+=======
+            $this->assertSame(1, $file->getClientSize());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $this->assertTrue($file->isValid());
         }
 

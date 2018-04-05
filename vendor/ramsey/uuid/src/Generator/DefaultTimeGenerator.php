@@ -79,7 +79,11 @@ class DefaultTimeGenerator implements TimeGeneratorInterface
 
         if ($clockSeq === null) {
             // Not using "stable storage"; see RFC 4122, Section 4.2.1.1
+<<<<<<< HEAD
             $clockSeq = mt_rand(0, 1 << 14);
+=======
+            $clockSeq = random_int(0, 0x3fff);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
 
         // Create a 60-bit time value as a count of 100-nanosecond intervals

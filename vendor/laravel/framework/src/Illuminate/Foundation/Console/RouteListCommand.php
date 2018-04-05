@@ -163,7 +163,11 @@ class RouteListCommand extends Command
     {
         if (($this->option('name') && ! Str::contains($route['name'], $this->option('name'))) ||
              $this->option('path') && ! Str::contains($route['uri'], $this->option('path')) ||
+<<<<<<< HEAD
              $this->option('method') && ! Str::contains($route['method'], $this->option('method'))) {
+=======
+             $this->option('method') && ! Str::contains($route['method'], strtoupper($this->option('method')))) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             return;
         }
 

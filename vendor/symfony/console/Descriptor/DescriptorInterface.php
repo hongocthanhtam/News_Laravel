@@ -21,7 +21,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 interface DescriptorInterface
 {
     /**
+<<<<<<< HEAD
      * Describes an InputArgument instance.
+=======
+     * Describes an object if supported.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      *
      * @param OutputInterface $output
      * @param object          $object

@@ -286,7 +286,11 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
                 }
             }
 
+<<<<<<< HEAD
             if (!$suiteMethod && !$testClass->isAbstract()) {
+=======
+            if (!$suiteMethod && !$testClass->isAbstract() && $testClass->isSubclassOf(TestCase::class)) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 $this->addTest(new self($testClass));
             }
         } else {
@@ -360,7 +364,11 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         foreach ($newClasses as $className) {
             $class = new ReflectionClass($className);
 
+<<<<<<< HEAD
             if (dirname($class->getFileName()) === __DIR__) {
+=======
+            if (\dirname($class->getFileName()) === __DIR__) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 continue;
             }
 

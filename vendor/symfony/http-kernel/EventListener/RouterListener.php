@@ -17,6 +17,10 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\FinishRequestEvent;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\KernelEvents;
+<<<<<<< HEAD
+=======
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -76,7 +80,15 @@ class RouterListener implements EventSubscriberInterface
     private function setCurrentRequest(Request $request = null)
     {
         if (null !== $request) {
+<<<<<<< HEAD
             $this->context->fromRequest($request);
+=======
+            try {
+                $this->context->fromRequest($request);
+            } catch (\UnexpectedValueException $e) {
+                throw new BadRequestHttpException($e->getMessage(), $e, $e->getCode());
+            }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
     }
 

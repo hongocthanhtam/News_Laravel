@@ -45,7 +45,11 @@ class XPathExpr
 
     public function addCondition(string $condition): XPathExpr
     {
+<<<<<<< HEAD
         $this->condition = $this->condition ? sprintf('%s and (%s)', $this->condition, $condition) : $condition;
+=======
+        $this->condition = $this->condition ? sprintf('(%s) and (%s)', $this->condition, $condition) : $condition;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         return $this;
     }
@@ -77,7 +81,11 @@ class XPathExpr
      *
      * @return $this
      */
+<<<<<<< HEAD
     public function join(string $combiner, XPathExpr $expr): XPathExpr
+=======
+    public function join(string $combiner, self $expr): self
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $path = $this->__toString().$combiner;
 

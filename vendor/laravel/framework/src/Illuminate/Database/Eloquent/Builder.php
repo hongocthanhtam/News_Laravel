@@ -68,7 +68,11 @@ class Builder
      */
     protected $passthru = [
         'insert', 'insertGetId', 'getBindings', 'toSql',
+<<<<<<< HEAD
         'exists', 'count', 'min', 'max', 'avg', 'sum', 'getConnection',
+=======
+        'exists', 'doesntExist', 'count', 'min', 'max', 'avg', 'sum', 'getConnection',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     ];
 
     /**
@@ -241,6 +245,13 @@ class Builder
      */
     public function orWhere($column, $operator = null, $value = null)
     {
+<<<<<<< HEAD
+=======
+        list($value, $operator) = $this->query->prepareValueAndOperator(
+            $value, $operator, func_num_args() == 2
+        );
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return $this->where($column, $operator, $value, 'or');
     }
 
@@ -1223,6 +1234,20 @@ class Builder
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Qualify the given column name by the model's table.
+     *
+     * @param  string  $column
+     * @return string
+     */
+    public function qualifyColumn($column)
+    {
+        return $this->model->qualifyColumn($column);
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Get the given macro by name.
      *
      * @param  string  $name

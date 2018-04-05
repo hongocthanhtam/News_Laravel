@@ -20,6 +20,10 @@ use Symfony\Component\Process\Exception\RuntimeException;
  */
 class InputStream implements \IteratorAggregate
 {
+<<<<<<< HEAD
+=======
+    /** @var null|callable */
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     private $onEmpty = null;
     private $input = array();
     private $open = true;
@@ -35,7 +39,12 @@ class InputStream implements \IteratorAggregate
     /**
      * Appends an input to the write buffer.
      *
+<<<<<<< HEAD
      * @param resource|scalar|\Traversable|null The input to append as stream resource, scalar or \Traversable
+=======
+     * @param resource|string|int|float|bool|\Traversable|null The input to append as scalar,
+     *                                                         stream resource or \Traversable
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function write($input)
     {

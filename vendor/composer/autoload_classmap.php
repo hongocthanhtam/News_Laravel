@@ -6,6 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
+=======
+    'App\\Categories' => $baseDir . '/app/Categories.php',
+    'App\\Comments' => $baseDir . '/app/Comments.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -13,24 +18,44 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\PageController' => $baseDir . '/app/Http/Controllers/PageController.php',
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+<<<<<<< HEAD
+=======
+    'App\\Images' => $baseDir . '/app/Images.php',
+    'App\\Post_Details' => $baseDir . '/app/Post_Details.php',
+    'App\\Posts' => $baseDir . '/app/Posts.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+<<<<<<< HEAD
     'App\\User' => $baseDir . '/app/User.php',
+=======
+    'App\\Reactions' => $baseDir . '/app/Reactions.php',
+    'App\\User' => $baseDir . '/app/User.php',
+    'App\\Users' => $baseDir . '/app/Users.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+<<<<<<< HEAD
+=======
+    'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
+    'CategoriesTableSeeder' => $baseDir . '/database/seeds/CategoriesTableSeeder.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
     'Cron\\DayOfMonthField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
@@ -1421,6 +1446,10 @@ return array(
     'Illuminate\\View\\ViewFinderInterface' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
     'Illuminate\\View\\ViewName' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewName.php',
     'Illuminate\\View\\ViewServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+<<<<<<< HEAD
+=======
+    'ImagesTableSeeder' => $baseDir . '/database/seeds/ImagesTableSeeder.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => $vendorDir . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
     'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => $vendorDir . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
     'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => $vendorDir . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
@@ -2282,6 +2311,11 @@ return array(
     'PhpParser\\Serializer\\XML' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Serializer/XML.php',
     'PhpParser\\Unserializer' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Unserializer.php',
     'PhpParser\\Unserializer\\XML' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Unserializer/XML.php',
+<<<<<<< HEAD
+=======
+    'Post_DetailsTableSeeder' => $baseDir . '/database/seeds/Post_DetailsTableSeeder.php',
+    'PostsTableSeeder' => $baseDir . '/database/seeds/PostsTableSeeder.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'Prophecy\\Argument' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument.php',
     'Prophecy\\Argument\\ArgumentsWildcard' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',
     'Prophecy\\Argument\\Token\\AnyValueToken' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument/Token/AnyValueToken.php',
@@ -2323,6 +2357,10 @@ return array(
     'Prophecy\\Doubler\\Generator\\Node\\ClassNode' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/Node/ClassNode.php',
     'Prophecy\\Doubler\\Generator\\Node\\MethodNode' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/Node/MethodNode.php',
     'Prophecy\\Doubler\\Generator\\ReflectionInterface' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/ReflectionInterface.php',
+<<<<<<< HEAD
+=======
+    'Prophecy\\Doubler\\Generator\\TypeHintReference' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/TypeHintReference.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'Prophecy\\Doubler\\LazyDouble' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/LazyDouble.php',
     'Prophecy\\Doubler\\NameGenerator' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/NameGenerator.php',
     'Prophecy\\Exception\\Call\\UnexpectedCallException' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Exception/Call/UnexpectedCallException.php',
@@ -2561,6 +2599,10 @@ return array(
     'Ramsey\\Uuid\\UuidFactory' => $vendorDir . '/ramsey/uuid/src/UuidFactory.php',
     'Ramsey\\Uuid\\UuidFactoryInterface' => $vendorDir . '/ramsey/uuid/src/UuidFactoryInterface.php',
     'Ramsey\\Uuid\\UuidInterface' => $vendorDir . '/ramsey/uuid/src/UuidInterface.php',
+<<<<<<< HEAD
+=======
+    'ReactionsTableSeeder' => $baseDir . '/database/seeds/ReactionsTableSeeder.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'SebastianBergmann\\CodeCoverage\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
     'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => $vendorDir . '/phpunit/php-code-coverage/src/Driver/Driver.php',
@@ -2654,6 +2696,10 @@ return array(
     'SebastianBergmann\\ResourceOperations\\ResourceOperations' => $vendorDir . '/sebastian/resource-operations/src/ResourceOperations.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'SessionUpdateTimestampHandlerInterface' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+<<<<<<< HEAD
+=======
+    'SlidesTableSeeder' => $baseDir . '/database/seeds/SlidesTableSeeder.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',
     'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => $vendorDir . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
     'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => $vendorDir . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
@@ -3075,6 +3121,10 @@ return array(
     'Symfony\\Component\\Routing\\Loader\\Configurator\\Traits\\RouteTrait' => $vendorDir . '/symfony/routing/Loader/Configurator/Traits/RouteTrait.php',
     'Symfony\\Component\\Routing\\Loader\\DependencyInjection\\ServiceRouterLoader' => $vendorDir . '/symfony/routing/Loader/DependencyInjection/ServiceRouterLoader.php',
     'Symfony\\Component\\Routing\\Loader\\DirectoryLoader' => $vendorDir . '/symfony/routing/Loader/DirectoryLoader.php',
+<<<<<<< HEAD
+=======
+    'Symfony\\Component\\Routing\\Loader\\GlobFileLoader' => $vendorDir . '/symfony/routing/Loader/GlobFileLoader.php',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'Symfony\\Component\\Routing\\Loader\\ObjectRouteLoader' => $vendorDir . '/symfony/routing/Loader/ObjectRouteLoader.php',
     'Symfony\\Component\\Routing\\Loader\\PhpFileLoader' => $vendorDir . '/symfony/routing/Loader/PhpFileLoader.php',
     'Symfony\\Component\\Routing\\Loader\\ProtectedPhpFileLoader' => $vendorDir . '/symfony/routing/Loader/PhpFileLoader.php',

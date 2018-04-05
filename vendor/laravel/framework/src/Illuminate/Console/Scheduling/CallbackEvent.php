@@ -60,8 +60,17 @@ class CallbackEvent extends Event
             return;
         }
 
+<<<<<<< HEAD
         register_shutdown_function(function () {
             $this->removeMutex();
+=======
+        $pid = getmypid();
+
+        register_shutdown_function(function () use ($pid) {
+            if ($pid === getmypid()) {
+                $this->removeMutex();
+            }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         });
 
         parent::callBeforeCallbacks($container);

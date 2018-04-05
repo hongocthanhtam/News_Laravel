@@ -372,7 +372,11 @@ class Response
 
         if (function_exists('fastcgi_finish_request')) {
             fastcgi_finish_request();
+<<<<<<< HEAD
         } elseif ('cli' !== PHP_SAPI) {
+=======
+        } elseif (!\in_array(PHP_SAPI, array('cli', 'phpdbg'), true)) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             static::closeOutputBuffers(0, true);
         }
 

@@ -11,6 +11,10 @@
 
 namespace Symfony\Component\HttpKernel\DataCollector;
 
+<<<<<<< HEAD
+=======
+use Symfony\Component\HttpFoundation\Cookie;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -128,6 +132,7 @@ class RequestDataCollector extends DataCollector implements EventSubscriberInter
             unset($this->controllers[$request]);
         }
 
+<<<<<<< HEAD
         if (null !== $session) {
             if ($request->attributes->has('_redirected')) {
                 $this->data['redirect'] = $session->remove('sf_redirect');
@@ -135,14 +140,31 @@ class RequestDataCollector extends DataCollector implements EventSubscriberInter
 
             if ($response->isRedirect()) {
                 $session->set('sf_redirect', array(
+=======
+        if ($request->attributes->has('_redirected') && $redirectCookie = $request->cookies->get('sf_redirect')) {
+            $this->data['redirect'] = json_decode($redirectCookie, true);
+
+            $response->headers->clearCookie('sf_redirect');
+        }
+
+        if ($response->isRedirect()) {
+            $response->headers->setCookie(new Cookie(
+                'sf_redirect',
+                json_encode(array(
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                     'token' => $response->headers->get('x-debug-token'),
                     'route' => $request->attributes->get('_route', 'n/a'),
                     'method' => $request->getMethod(),
                     'controller' => $this->parseController($request->attributes->get('_controller')),
                     'status_code' => $statusCode,
                     'status_text' => Response::$statusTexts[(int) $statusCode],
+<<<<<<< HEAD
                 ));
             }
+=======
+                ))
+            ));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
 
         $this->data['identifier'] = $this->data['route'] ?: (is_array($this->data['controller']) ? $this->data['controller']['class'].'::'.$this->data['controller']['method'].'()' : $this->data['controller']);
@@ -312,11 +334,19 @@ class RequestDataCollector extends DataCollector implements EventSubscriberInter
 
     public function onKernelResponse(FilterResponseEvent $event)
     {
+<<<<<<< HEAD
         if (!$event->isMasterRequest() || !$event->getRequest()->hasSession()) {
             return;
         }
 
         if ($event->getRequest()->getSession()->has('sf_redirect')) {
+=======
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
+        if ($event->getRequest()->cookies->has('sf_redirect')) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $event->getRequest()->attributes->set('_redirected', true);
         }
     }

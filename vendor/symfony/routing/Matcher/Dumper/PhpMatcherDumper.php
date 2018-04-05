@@ -102,15 +102,23 @@ EOF;
         \$pathinfo = rawurldecode(\$rawPathinfo);
         \$trimmedPathinfo = rtrim(\$pathinfo, '/');
         \$context = \$this->context;
+<<<<<<< HEAD
         \$request = \$this->request;
         \$requestMethod = \$canonicalMethod = \$context->getMethod();
         \$scheme = \$context->getScheme();
+=======
+        \$request = \$this->request ?: \$this->createRequest(\$pathinfo);
+        \$requestMethod = \$canonicalMethod = \$context->getMethod();
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         if ('HEAD' === \$requestMethod) {
             \$canonicalMethod = 'GET';
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 $code
 
         throw 0 < count(\$allow) ? new MethodNotAllowedException(array_unique(\$allow)) : new ResourceNotFoundException();
@@ -155,11 +163,18 @@ EOF;
             }
         }
 
+<<<<<<< HEAD
         if ('' === $code) {
             $code .= "        if ('/' === \$pathinfo) {\n";
             $code .= "            throw new Symfony\Component\Routing\Exception\NoConfigurationException();\n";
             $code .= "        }\n";
         }
+=======
+        // used to display the Welcome Page in apps that don't define a homepage
+        $code .= "        if ('/' === \$pathinfo) {\n";
+        $code .= "            throw new Symfony\Component\Routing\Exception\NoConfigurationException();\n";
+        $code .= "        }\n";
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         return $code;
     }
@@ -239,7 +254,11 @@ EOF;
         $hostMatches = false;
         $methods = $route->getMethods();
 
+<<<<<<< HEAD
         $supportsTrailingSlash = $supportsRedirections && (!$methods || in_array('HEAD', $methods) || in_array('GET', $methods));
+=======
+        $supportsTrailingSlash = $supportsRedirections && (!$methods || in_array('GET', $methods));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $regex = $compiledRoute->getRegex();
 
         if (!count($compiledRoute->getPathVariables()) && false !== preg_match('#^(.)\^(?P<url>.*?)\$\1#'.('u' === substr($regex, -1) ? 'u' : ''), $regex, $m)) {
@@ -281,6 +300,7 @@ EOF;
 
         $gotoname = 'not_'.preg_replace('/[^A-Za-z0-9_]/', '', $name);
 
+<<<<<<< HEAD
         if ($methods) {
             if (1 === count($methods)) {
                 if ('HEAD' === $methods[0]) {
@@ -334,6 +354,8 @@ EOF;
             }
         }
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         // the offset where the return value is appended below, with indendation
         $retOffset = 12 + strlen($code);
 
@@ -361,7 +383,15 @@ EOF;
 
         if ($hasTrailingSlash) {
             $code .= <<<EOF
+<<<<<<< HEAD
             if (substr(\$pathinfo, -1) !== '/') {
+=======
+            if ('/' === substr(\$pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== \$canonicalMethod) {
+                goto $gotoname;
+            } else {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 return array_replace(\$ret, \$this->redirect(\$rawPathinfo.'/', '$name'));
             }
 
@@ -369,29 +399,88 @@ EOF;
 EOF;
         }
 
+<<<<<<< HEAD
+=======
+        if ($methods) {
+            $methodVariable = in_array('GET', $methods) ? '$canonicalMethod' : '$requestMethod';
+            $methods = implode("', '", $methods);
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         if ($schemes = $route->getSchemes()) {
             if (!$supportsRedirections) {
                 throw new \LogicException('The "schemes" requirement is only supported for URL matchers that implement RedirectableUrlMatcherInterface.');
             }
             $schemes = str_replace("\n", '', var_export(array_flip($schemes), true));
+<<<<<<< HEAD
             $code .= <<<EOF
             \$requiredSchemes = $schemes;
             if (!isset(\$requiredSchemes[\$scheme])) {
+=======
+            if ($methods) {
+                $code .= <<<EOF
+            \$requiredSchemes = $schemes;
+            \$hasRequiredScheme = isset(\$requiredSchemes[\$context->getScheme()]);
+            if (!in_array($methodVariable, array('$methods'))) {
+                if (\$hasRequiredScheme) {
+                    \$allow = array_merge(\$allow, array('$methods'));
+                }
+                goto $gotoname;
+            }
+            if (!\$hasRequiredScheme) {
+                if ('GET' !== \$canonicalMethod) {
+                    goto $gotoname;
+                }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 return array_replace(\$ret, \$this->redirect(\$rawPathinfo, '$name', key(\$requiredSchemes)));
+            }
+
+
+EOF;
+<<<<<<< HEAD
+        }
+
+        if ($hasTrailingSlash || $schemes) {
+=======
+            } else {
+                $code .= <<<EOF
+            \$requiredSchemes = $schemes;
+            if (!isset(\$requiredSchemes[\$context->getScheme()])) {
+                if ('GET' !== \$canonicalMethod) {
+                    goto $gotoname;
+                }
+
+                return array_replace(\$ret, \$this->redirect(\$rawPathinfo, '$name', key(\$requiredSchemes)));
+            }
+
+
+EOF;
+            }
+        } elseif ($methods) {
+                $code .= <<<EOF
+            if (!in_array($methodVariable, array('$methods'))) {
+                \$allow = array_merge(\$allow, array('$methods'));
+                goto $gotoname;
             }
 
 
 EOF;
         }
 
-        if ($hasTrailingSlash || $schemes) {
+        if ($hasTrailingSlash || $schemes || $methods) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $code .= "            return \$ret;\n";
         } else {
             $code = substr_replace($code, 'return', $retOffset, 6);
         }
         $code .= "        }\n";
 
+<<<<<<< HEAD
         if ($methods) {
+=======
+        if ($hasTrailingSlash || $schemes || $methods) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $code .= "        $gotoname:\n";
         }
 

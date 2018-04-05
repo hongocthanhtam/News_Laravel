@@ -21,7 +21,11 @@ return array(
     'hour' => '1 час|:count часа',
     'h' => '1 час|:count часа',
     'minute' => '1 минута|:count минути',
+<<<<<<< HEAD
     'm' => '1 минута|:count минути',
+=======
+    'min' => '1 минута|:count минути',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'second' => '1 секунда|:count секунди',
     's' => '1 секунда|:count секунди',
     'ago' => 'преди :time',

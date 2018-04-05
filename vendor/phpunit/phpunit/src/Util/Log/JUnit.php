@@ -362,10 +362,16 @@ class JUnit extends Printer implements TestListener
         $this->testSuiteTimes[$this->testSuiteLevel] += $time;
 
         if (\method_exists($test, 'hasOutput') && $test->hasOutput()) {
+<<<<<<< HEAD
             $systemOut = $this->document->createElement('system-out');
 
             $systemOut->appendChild(
                 $this->document->createTextNode($test->getActualOutput())
+=======
+            $systemOut = $this->document->createElement(
+                'system-out',
+                Xml::prepareString($test->getActualOutput())
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             );
 
             $this->currentTestCase->appendChild($systemOut);

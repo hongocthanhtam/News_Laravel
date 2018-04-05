@@ -53,10 +53,13 @@ class SaveSessionListener implements EventSubscriberInterface
         $session = $event->getRequest()->getSession();
         if ($session && $session->isStarted()) {
             $session->save();
+<<<<<<< HEAD
             $event->getResponse()
                 ->setPrivate()
                 ->setMaxAge(0)
                 ->headers->addCacheControlDirective('must-revalidate');
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
     }
 

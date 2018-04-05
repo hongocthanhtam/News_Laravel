@@ -120,6 +120,10 @@ LUA;
     /**
      * Release the lock.
      *
+<<<<<<< HEAD
+=======
+     * @param  string  $key
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @return void
      */
     protected function release($key)

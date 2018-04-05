@@ -32,6 +32,7 @@ class FileDumperTest extends TestCase
         @unlink($tempDir.'/messages.en.concrete');
     }
 
+<<<<<<< HEAD
     /**
      * @group legacy
      */
@@ -55,6 +56,8 @@ class FileDumperTest extends TestCase
         @unlink($backupFile);
     }
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function testDumpCreatesNestedDirectoriesAndFile()
     {
         $tempDir = sys_get_temp_dir();

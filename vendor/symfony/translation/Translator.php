@@ -74,6 +74,7 @@ class Translator implements TranslatorInterface, TranslatorBagInterface
     private $configCacheFactory;
 
     /**
+<<<<<<< HEAD
      * @param string                         $locale    The locale
      * @param MessageFormatterInterface|null $formatter The message formatter
      * @param string|null                    $cacheDir  The directory to use for the cache
@@ -89,6 +90,15 @@ class Translator implements TranslatorInterface, TranslatorBagInterface
             $formatter = new MessageFormatter($formatter);
             @trigger_error(sprintf('Passing a "%s" instance into the "%s" as a second argument is deprecated since Symfony 3.4 and will be removed in 4.0. Inject a "%s" implementation instead.', MessageSelector::class, __METHOD__, MessageFormatterInterface::class), E_USER_DEPRECATED);
         } elseif (null === $formatter) {
+=======
+     * @throws InvalidArgumentException If a locale contains invalid characters
+     */
+    public function __construct(?string $locale, MessageFormatterInterface $formatter = null, string $cacheDir = null, bool $debug = false)
+    {
+        $this->setLocale($locale);
+
+        if (null === $formatter) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $formatter = new MessageFormatter();
         }
 
@@ -283,10 +293,14 @@ class Translator implements TranslatorInterface, TranslatorBagInterface
         $this->loadFallbackCatalogues($locale);
     }
 
+<<<<<<< HEAD
     /**
      * @param string $locale
      */
     private function initializeCacheCatalogue($locale)
+=======
+    private function initializeCacheCatalogue(string $locale): void
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         if (isset($this->catalogues[$locale])) {
             /* Catalogue already initialized. */
@@ -309,7 +323,11 @@ class Translator implements TranslatorInterface, TranslatorBagInterface
         $this->catalogues[$locale] = include $cache->getPath();
     }
 
+<<<<<<< HEAD
     private function dumpCatalogue($locale, ConfigCacheInterface $cache)
+=======
+    private function dumpCatalogue($locale, ConfigCacheInterface $cache): void
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $this->initializeCatalogue($locale);
         $fallbackContent = $this->getFallbackContent($this->catalogues[$locale]);
@@ -334,7 +352,11 @@ EOF
         $cache->write($content, $this->catalogues[$locale]->getResources());
     }
 
+<<<<<<< HEAD
     private function getFallbackContent(MessageCatalogue $catalogue)
+=======
+    private function getFallbackContent(MessageCatalogue $catalogue): string
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $fallbackContent = '';
         $current = '';
@@ -369,7 +391,11 @@ EOF
         return $this->cacheDir.'/catalogue.'.$locale.'.'.strtr(substr(base64_encode(hash('sha256', serialize($this->fallbackLocales), true)), 0, 7), '/', '_').'.php';
     }
 
+<<<<<<< HEAD
     private function doLoadCatalogue($locale)
+=======
+    private function doLoadCatalogue($locale): void
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $this->catalogues[$locale] = new MessageCatalogue($locale);
 
@@ -383,7 +409,11 @@ EOF
         }
     }
 
+<<<<<<< HEAD
     private function loadFallbackCatalogues($locale)
+=======
+    private function loadFallbackCatalogues($locale): void
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $current = $this->catalogues[$locale];
 
@@ -436,10 +466,15 @@ EOF
     /**
      * Provides the ConfigCache factory implementation, falling back to a
      * default implementation if necessary.
+<<<<<<< HEAD
      *
      * @return ConfigCacheFactoryInterface $configCacheFactory
      */
     private function getConfigCacheFactory()
+=======
+     */
+    private function getConfigCacheFactory(): ConfigCacheFactoryInterface
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         if (!$this->configCacheFactory) {
             $this->configCacheFactory = new ConfigCacheFactory($this->debug);

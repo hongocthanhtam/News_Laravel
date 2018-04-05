@@ -4,6 +4,10 @@ namespace Illuminate\Database\Eloquent;
 
 use LogicException;
 use Illuminate\Support\Arr;
+<<<<<<< HEAD
+=======
+use Illuminate\Contracts\Support\Arrayable;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Illuminate\Contracts\Queue\QueueableCollection;
 use Illuminate\Support\Collection as BaseCollection;
 
@@ -22,6 +26,13 @@ class Collection extends BaseCollection implements QueueableCollection
             $key = $key->getKey();
         }
 
+<<<<<<< HEAD
+=======
+        if ($key instanceof Arrayable) {
+            $key = $key->toArray();
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         if (is_array($key)) {
             if ($this->isEmpty()) {
                 return new static;

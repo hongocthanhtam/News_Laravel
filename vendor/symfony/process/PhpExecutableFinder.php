@@ -44,7 +44,11 @@ class PhpExecutableFinder
         }
 
         // PHP_BINARY return the current sapi executable
+<<<<<<< HEAD
         if (PHP_BINARY && in_array(PHP_SAPI, array('cli', 'cli-server', 'phpdbg')) && is_file(PHP_BINARY)) {
+=======
+        if (PHP_BINARY && \in_array(PHP_SAPI, array('cli', 'cli-server', 'phpdbg'), true)) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             return PHP_BINARY.$args;
         }
 
@@ -62,6 +66,13 @@ class PhpExecutableFinder
             }
         }
 
+<<<<<<< HEAD
+=======
+        if (is_executable($php = PHP_BINDIR.('\\' === DIRECTORY_SEPARATOR ? '\\php.exe' : '/php'))) {
+            return $php;
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $dirs = array(PHP_BINDIR);
         if ('\\' === DIRECTORY_SEPARATOR) {
             $dirs[] = 'C:\xampp\php\\';

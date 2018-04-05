@@ -17,7 +17,11 @@ class Parsedown
 {
     # ~
 
+<<<<<<< HEAD
     const version = '1.6.0';
+=======
+    const version = '1.7.1';
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
     # ~
 
@@ -75,6 +79,35 @@ class Parsedown
 
     protected $urlsLinked = true;
 
+<<<<<<< HEAD
+=======
+    function setSafeMode($safeMode)
+    {
+        $this->safeMode = (bool) $safeMode;
+
+        return $this;
+    }
+
+    protected $safeMode;
+
+    protected $safeLinksWhitelist = array(
+        'http://',
+        'https://',
+        'ftp://',
+        'ftps://',
+        'mailto:',
+        'data:image/png;base64,',
+        'data:image/gif;base64,',
+        'data:image/jpeg;base64,',
+        'irc:',
+        'ircs:',
+        'git:',
+        'ssh:',
+        'news:',
+        'steam:',
+    );
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     #
     # Lines
     #
@@ -342,8 +375,11 @@ class Parsedown
     {
         $text = $Block['element']['text']['text'];
 
+<<<<<<< HEAD
         $text = htmlspecialchars($text, ENT_NOQUOTES, 'UTF-8');
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $Block['element']['text']['text'] = $text;
 
         return $Block;
@@ -354,7 +390,11 @@ class Parsedown
 
     protected function blockComment($Line)
     {
+<<<<<<< HEAD
         if ($this->markupEscaped)
+=======
+        if ($this->markupEscaped or $this->safeMode)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         {
             return;
         }
@@ -396,7 +436,11 @@ class Parsedown
 
     protected function blockFencedCode($Line)
     {
+<<<<<<< HEAD
         if (preg_match('/^['.$Line['text'][0].']{3,}[ ]*([\w-]+)?[ ]*$/', $Line['text'], $matches))
+=======
+        if (preg_match('/^['.$Line['text'][0].']{3,}[ ]*([^`]+)?[ ]*$/', $Line['text'], $matches))
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         {
             $Element = array(
                 'name' => 'code',
@@ -457,8 +501,11 @@ class Parsedown
     {
         $text = $Block['element']['text']['text'];
 
+<<<<<<< HEAD
         $text = htmlspecialchars($text, ENT_NOQUOTES, 'UTF-8');
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $Block['element']['text']['text'] = $text;
 
         return $Block;
@@ -515,10 +562,17 @@ class Parsedown
                 ),
             );
 
+<<<<<<< HEAD
             if($name === 'ol') 
             {
                 $listStart = stristr($matches[0], '.', true);
                 
+=======
+            if($name === 'ol')
+            {
+                $listStart = stristr($matches[0], '.', true);
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 if($listStart !== '1')
                 {
                     $Block['element']['attributes'] = array('start' => $listStart);
@@ -547,6 +601,11 @@ class Parsedown
             {
                 $Block['li']['text'] []= '';
 
+<<<<<<< HEAD
+=======
+                $Block['loose'] = true;
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 unset($Block['interrupted']);
             }
 
@@ -595,6 +654,25 @@ class Parsedown
         }
     }
 
+<<<<<<< HEAD
+=======
+    protected function blockListComplete(array $Block)
+    {
+        if (isset($Block['loose']))
+        {
+            foreach ($Block['element']['text'] as &$li)
+            {
+                if (end($li['text']) !== '')
+                {
+                    $li['text'] []= '';
+                }
+            }
+        }
+
+        return $Block;
+    }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     #
     # Quote
 
@@ -678,12 +756,20 @@ class Parsedown
 
     protected function blockMarkup($Line)
     {
+<<<<<<< HEAD
         if ($this->markupEscaped)
+=======
+        if ($this->markupEscaped or $this->safeMode)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         {
             return;
         }
 
+<<<<<<< HEAD
         if (preg_match('/^<(\w*)(?:[ ]*'.$this->regexHtmlAttribute.')*[ ]*(\/)?>/', $Line['text'], $matches))
+=======
+        if (preg_match('/^<(\w[\w-]*)(?:[ ]*'.$this->regexHtmlAttribute.')*[ ]*(\/)?>/', $Line['text'], $matches))
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         {
             $element = strtolower($matches[1]);
 
@@ -997,7 +1083,11 @@ class Parsedown
     # ~
     #
 
+<<<<<<< HEAD
     public function line($text)
+=======
+    public function line($text, $nonNestables=array())
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $markup = '';
 
@@ -1013,6 +1103,16 @@ class Parsedown
 
             foreach ($this->InlineTypes[$marker] as $inlineType)
             {
+<<<<<<< HEAD
+=======
+                # check to see if the current inline type is nestable in the current context
+
+                if ( ! empty($nonNestables) and in_array($inlineType, $nonNestables))
+                {
+                    continue;
+                }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 $Inline = $this->{'inline'.$inlineType}($Excerpt);
 
                 if ( ! isset($Inline))
@@ -1034,6 +1134,16 @@ class Parsedown
                     $Inline['position'] = $markerPosition;
                 }
 
+<<<<<<< HEAD
+=======
+                # cause the new element to 'inherit' our non nestables
+
+                foreach ($nonNestables as $non_nestable)
+                {
+                    $Inline['element']['nonNestables'][] = $non_nestable;
+                }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 # the text that comes before the inline
                 $unmarkedText = substr($text, 0, $Inline['position']);
 
@@ -1074,7 +1184,10 @@ class Parsedown
         if (preg_match('/^('.$marker.'+)[ ]*(.+?)[ ]*(?<!'.$marker.')\1(?!'.$marker.')/s', $Excerpt['text'], $matches))
         {
             $text = $matches[2];
+<<<<<<< HEAD
             $text = htmlspecialchars($text, ENT_NOQUOTES, 'UTF-8');
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $text = preg_replace("/[ ]*\n/", ' ', $text);
 
             return array(
@@ -1193,6 +1306,10 @@ class Parsedown
         $Element = array(
             'name' => 'a',
             'handler' => 'line',
+<<<<<<< HEAD
+=======
+            'nonNestables' => array('Url', 'Link'),
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             'text' => null,
             'attributes' => array(
                 'href' => null,
@@ -1253,8 +1370,11 @@ class Parsedown
             $Element['attributes']['title'] = $Definition['title'];
         }
 
+<<<<<<< HEAD
         $Element['attributes']['href'] = str_replace(array('&', '<'), array('&amp;', '&lt;'), $Element['attributes']['href']);
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return array(
             'extent' => $extent,
             'element' => $Element,
@@ -1263,12 +1383,20 @@ class Parsedown
 
     protected function inlineMarkup($Excerpt)
     {
+<<<<<<< HEAD
         if ($this->markupEscaped or strpos($Excerpt['text'], '>') === false)
+=======
+        if ($this->markupEscaped or $this->safeMode or strpos($Excerpt['text'], '>') === false)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         {
             return;
         }
 
+<<<<<<< HEAD
         if ($Excerpt['text'][1] === '/' and preg_match('/^<\/\w*[ ]*>/s', $Excerpt['text'], $matches))
+=======
+        if ($Excerpt['text'][1] === '/' and preg_match('/^<\/\w[\w-]*[ ]*>/s', $Excerpt['text'], $matches))
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         {
             return array(
                 'markup' => $matches[0],
@@ -1284,7 +1412,11 @@ class Parsedown
             );
         }
 
+<<<<<<< HEAD
         if ($Excerpt['text'][1] !== ' ' and preg_match('/^<\w*(?:[ ]*'.$this->regexHtmlAttribute.')*[ ]*\/?>/s', $Excerpt['text'], $matches))
+=======
+        if ($Excerpt['text'][1] !== ' ' and preg_match('/^<\w[\w-]*(?:[ ]*'.$this->regexHtmlAttribute.')*[ ]*\/?>/s', $Excerpt['text'], $matches))
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         {
             return array(
                 'markup' => $matches[0],
@@ -1343,14 +1475,25 @@ class Parsedown
 
         if (preg_match('/\bhttps?:[\/]{2}[^\s<]+\b\/*/ui', $Excerpt['context'], $matches, PREG_OFFSET_CAPTURE))
         {
+<<<<<<< HEAD
+=======
+            $url = $matches[0][0];
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $Inline = array(
                 'extent' => strlen($matches[0][0]),
                 'position' => $matches[0][1],
                 'element' => array(
                     'name' => 'a',
+<<<<<<< HEAD
                     'text' => $matches[0][0],
                     'attributes' => array(
                         'href' => $matches[0][0],
+=======
+                    'text' => $url,
+                    'attributes' => array(
+                        'href' => $url,
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                     ),
                 ),
             );
@@ -1363,7 +1506,11 @@ class Parsedown
     {
         if (strpos($Excerpt['text'], '>') !== false and preg_match('/^<(\w+:\/{2}[^ >]+)>/i', $Excerpt['text'], $matches))
         {
+<<<<<<< HEAD
             $url = str_replace(array('&', '<'), array('&amp;', '&lt;'), $matches[1]);
+=======
+            $url = $matches[1];
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
             return array(
                 'extent' => strlen($matches[0]),
@@ -1401,6 +1548,14 @@ class Parsedown
 
     protected function element(array $Element)
     {
+<<<<<<< HEAD
+=======
+        if ($this->safeMode)
+        {
+            $Element = $this->sanitiseElement($Element);
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $markup = '<'.$Element['name'];
 
         if (isset($Element['attributes']))
@@ -1412,7 +1567,11 @@ class Parsedown
                     continue;
                 }
 
+<<<<<<< HEAD
                 $markup .= ' '.$name.'="'.$value.'"';
+=======
+                $markup .= ' '.$name.'="'.self::escape($value).'"';
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
         }
 
@@ -1420,6 +1579,7 @@ class Parsedown
         {
             $markup .= '>';
 
+<<<<<<< HEAD
             if (isset($Element['handler']))
             {
                 $markup .= $this->{$Element['handler']}($Element['text']);
@@ -1427,6 +1587,20 @@ class Parsedown
             else
             {
                 $markup .= $Element['text'];
+=======
+            if (!isset($Element['nonNestables'])) 
+            {
+                $Element['nonNestables'] = array();
+            }
+
+            if (isset($Element['handler']))
+            {
+                $markup .= $this->{$Element['handler']}($Element['text'], $Element['nonNestables']);
+            }
+            else
+            {
+                $markup .= self::escape($Element['text'], true);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
 
             $markup .= '</'.$Element['name'].'>';
@@ -1485,10 +1659,83 @@ class Parsedown
         return $markup;
     }
 
+<<<<<<< HEAD
+=======
+    protected function sanitiseElement(array $Element)
+    {
+        static $goodAttribute = '/^[a-zA-Z0-9][a-zA-Z0-9-_]*+$/';
+        static $safeUrlNameToAtt  = array(
+            'a'   => 'href',
+            'img' => 'src',
+        );
+
+        if (isset($safeUrlNameToAtt[$Element['name']]))
+        {
+            $Element = $this->filterUnsafeUrlInAttribute($Element, $safeUrlNameToAtt[$Element['name']]);
+        }
+
+        if ( ! empty($Element['attributes']))
+        {
+            foreach ($Element['attributes'] as $att => $val)
+            {
+                # filter out badly parsed attribute
+                if ( ! preg_match($goodAttribute, $att))
+                {
+                    unset($Element['attributes'][$att]);
+                }
+                # dump onevent attribute
+                elseif (self::striAtStart($att, 'on'))
+                {
+                    unset($Element['attributes'][$att]);
+                }
+            }
+        }
+
+        return $Element;
+    }
+
+    protected function filterUnsafeUrlInAttribute(array $Element, $attribute)
+    {
+        foreach ($this->safeLinksWhitelist as $scheme)
+        {
+            if (self::striAtStart($Element['attributes'][$attribute], $scheme))
+            {
+                return $Element;
+            }
+        }
+
+        $Element['attributes'][$attribute] = str_replace(':', '%3A', $Element['attributes'][$attribute]);
+
+        return $Element;
+    }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     #
     # Static Methods
     #
 
+<<<<<<< HEAD
+=======
+    protected static function escape($text, $allowQuotes = false)
+    {
+        return htmlspecialchars($text, $allowQuotes ? ENT_NOQUOTES : ENT_QUOTES, 'UTF-8');
+    }
+
+    protected static function striAtStart($string, $needle)
+    {
+        $len = strlen($needle);
+
+        if ($len > strlen($string))
+        {
+            return false;
+        }
+        else
+        {
+            return strtolower(substr($string, 0, $len)) === strtolower($needle);
+        }
+    }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     static function instance($name = 'default')
     {
         if (isset(self::$instances[$name]))

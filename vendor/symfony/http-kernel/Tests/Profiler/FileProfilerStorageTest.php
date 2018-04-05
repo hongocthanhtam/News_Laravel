@@ -83,22 +83,38 @@ class FileProfilerStorageTest extends TestCase
         $profile = new Profile('simple_quote');
         $profile->setUrl('http://foo.bar/\'');
         $this->storage->write($profile);
+<<<<<<< HEAD
         $this->assertTrue(false !== $this->storage->read('simple_quote'), '->write() accepts single quotes in URL');
+=======
+        $this->assertNotFalse($this->storage->read('simple_quote'), '->write() accepts single quotes in URL');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $profile = new Profile('double_quote');
         $profile->setUrl('http://foo.bar/"');
         $this->storage->write($profile);
+<<<<<<< HEAD
         $this->assertTrue(false !== $this->storage->read('double_quote'), '->write() accepts double quotes in URL');
+=======
+        $this->assertNotFalse($this->storage->read('double_quote'), '->write() accepts double quotes in URL');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $profile = new Profile('backslash');
         $profile->setUrl('http://foo.bar/\\');
         $this->storage->write($profile);
+<<<<<<< HEAD
         $this->assertTrue(false !== $this->storage->read('backslash'), '->write() accepts backslash in URL');
+=======
+        $this->assertNotFalse($this->storage->read('backslash'), '->write() accepts backslash in URL');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $profile = new Profile('comma');
         $profile->setUrl('http://foo.bar/,');
         $this->storage->write($profile);
+<<<<<<< HEAD
         $this->assertTrue(false !== $this->storage->read('comma'), '->write() accepts comma in URL');
+=======
+        $this->assertNotFalse($this->storage->read('comma'), '->write() accepts comma in URL');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function testStoreDuplicateToken()
@@ -247,7 +263,11 @@ class FileProfilerStorageTest extends TestCase
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
+<<<<<<< HEAD
         $this->assertTrue(false !== $this->storage->read('token1'));
+=======
+        $this->assertNotFalse($this->storage->read('token1'));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $this->assertCount(1, $this->storage->find('127.0.0.1', '', 10, 'GET'));
 
         $profile = new Profile('token2');
@@ -256,7 +276,11 @@ class FileProfilerStorageTest extends TestCase
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
+<<<<<<< HEAD
         $this->assertTrue(false !== $this->storage->read('token2'));
+=======
+        $this->assertNotFalse($this->storage->read('token2'));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $this->assertCount(2, $this->storage->find('127.0.0.1', '', 10, 'GET'));
 
         $this->storage->purge();

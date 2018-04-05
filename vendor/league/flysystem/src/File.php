@@ -17,7 +17,11 @@ class File extends Handler
     /**
      * Read the file.
      *
+<<<<<<< HEAD
      * @return string file contents
+=======
+     * @return string|false file contents
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function read()
     {
@@ -27,7 +31,11 @@ class File extends Handler
     /**
      * Read the file as a stream.
      *
+<<<<<<< HEAD
      * @return resource file stream
+=======
+     * @return resource|false file stream
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function readStream()
     {
@@ -143,7 +151,11 @@ class File extends Handler
     /**
      * Get the file's timestamp.
      *
+<<<<<<< HEAD
      * @return int unix timestamp
+=======
+     * @return string|false The timestamp or false on failure.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getTimestamp()
     {
@@ -153,7 +165,11 @@ class File extends Handler
     /**
      * Get the file's mimetype.
      *
+<<<<<<< HEAD
      * @return string mimetime
+=======
+     * @return string|false The file mime-type or false on failure.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getMimetype()
     {
@@ -163,7 +179,11 @@ class File extends Handler
     /**
      * Get the file's visibility.
      *
+<<<<<<< HEAD
      * @return string visibility
+=======
+     * @return string|false The visibility (public|private) or false on failure.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getVisibility()
     {
@@ -173,7 +193,11 @@ class File extends Handler
     /**
      * Get the file's metadata.
      *
+<<<<<<< HEAD
      * @return array
+=======
+     * @return array|false The file metadata or false on failure.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getMetadata()
     {
@@ -183,7 +207,11 @@ class File extends Handler
     /**
      * Get the file size.
      *
+<<<<<<< HEAD
      * @return int file size
+=======
+     * @return int|false The file size or false on failure.
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     public function getSize()
     {

@@ -164,6 +164,10 @@ trait SoftDeletes
      */
     public function getQualifiedDeletedAtColumn()
     {
+<<<<<<< HEAD
         return $this->getTable().'.'.$this->getDeletedAtColumn();
+=======
+        return $this->qualifyColumn($this->getDeletedAtColumn());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }

@@ -72,6 +72,30 @@ class SlackAttachment
     public $thumbUrl;
 
     /**
+<<<<<<< HEAD
+=======
+     * The attachment author's name.
+     *
+     * @var string
+     */
+    public $authorName;
+
+    /**
+     * The attachment author's link.
+     *
+     * @var string
+     */
+    public $authorLink;
+
+    /**
+     * The attachment author's icon.
+     *
+     * @var string
+     */
+    public $authorIcon;
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * The attachment's footer.
      *
      * @var string
@@ -96,7 +120,11 @@ class SlackAttachment
      * Set the title of the attachment.
      *
      * @param  string  $title
+<<<<<<< HEAD
      * @param  string  $url
+=======
+     * @param  string|null  $url
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @return $this
      */
     public function title($title, $url = null)
@@ -223,6 +251,26 @@ class SlackAttachment
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Set the author of the attachment.
+     *
+     * @param  string  $name
+     * @param  string|null  $link
+     * @param  string|null  $icon
+     * @return $this
+     */
+    public function author($name, $link = null, $icon = null)
+    {
+        $this->authorName = $name;
+        $this->authorLink = $link;
+        $this->authorIcon = $icon;
+
+        return $this;
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Set the footer content.
      *
      * @param  string  $footer

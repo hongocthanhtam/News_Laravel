@@ -17,7 +17,11 @@ class PostgresGrammar extends Grammar
         '=', '<', '>', '<=', '>=', '<>', '!=',
         'like', 'not like', 'ilike',
         '&', '|', '#', '<<', '>>', '>>=', '=<<',
+<<<<<<< HEAD
         '@>', '<@', '?', '?|', '?&', '||', '-', '-', '#-',
+=======
+        '&&', '@>', '<@', '?', '?|', '?&', '||', '-', '-', '#-',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     ];
 
     /**
@@ -35,6 +39,23 @@ class PostgresGrammar extends Grammar
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Compile a "where time" clause.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  array  $where
+     * @return string
+     */
+    protected function whereTime(Builder $query, $where)
+    {
+        $value = $this->parameter($where['value']);
+
+        return $this->wrap($where['column']).'::time '.$where['operator'].' '.$value;
+    }
+
+    /**
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * Compile a date based where clause.
      *
      * @param  string  $type

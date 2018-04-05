@@ -35,7 +35,11 @@ class ErrorHandlerTest extends TestCase
 
             $newHandler = new ErrorHandler();
 
+<<<<<<< HEAD
             $this->assertSame($newHandler, ErrorHandler::register($newHandler, false));
+=======
+            $this->assertSame($handler, ErrorHandler::register($newHandler, false));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $h = set_error_handler('var_dump');
             restore_error_handler();
             $this->assertSame(array($handler, 'handleError'), $h);
@@ -299,6 +303,12 @@ class ErrorHandlerTest extends TestCase
         @$handler->handleError(E_USER_DEPRECATED, 'Foo deprecation', __FILE__, __LINE__, array());
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @group no-hhvm
+     */
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function testHandleException()
     {
         try {
@@ -423,6 +433,12 @@ class ErrorHandlerTest extends TestCase
         $handler->setLoggers(array(E_DEPRECATED => array($mockLogger, LogLevel::WARNING)));
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @group no-hhvm
+     */
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function testSettingLoggerWhenExceptionIsBuffered()
     {
         $bootLogger = new BufferingLogger();
@@ -442,6 +458,12 @@ class ErrorHandlerTest extends TestCase
         $handler->handleException($exception);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @group no-hhvm
+     */
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function testHandleFatalError()
     {
         try {
@@ -500,6 +522,12 @@ class ErrorHandlerTest extends TestCase
         $this->assertStringStartsWith("Attempted to load class \"Foo\" from the global namespace.\nDid you forget a \"use\" statement", $args[0]->getMessage());
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @group no-hhvm
+     */
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function testHandleFatalErrorOnHHVM()
     {
         try {
@@ -533,4 +561,21 @@ class ErrorHandlerTest extends TestCase
             restore_exception_handler();
         }
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * @expectedException \Exception
+     * @group no-hhvm
+     */
+    public function testCustomExceptionHandler()
+    {
+        $handler = new ErrorHandler();
+        $handler->setExceptionHandler(function ($e) use ($handler) {
+            $handler->handleException($e);
+        });
+
+        $handler->handleException(new \Exception());
+    }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 }

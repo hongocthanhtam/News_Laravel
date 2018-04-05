@@ -218,7 +218,11 @@ class BladeCompiler extends Compiler implements CompilerInterface
      */
     protected function storeRawBlock($value)
     {
+<<<<<<< HEAD
         return $this->getRawPlaceHolder(
+=======
+        return $this->getRawPlaceholder(
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             array_push($this->rawBlocks, $value) - 1
         );
     }
@@ -455,4 +459,17 @@ class BladeCompiler extends Compiler implements CompilerInterface
     {
         $this->echoFormat = $format;
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * Set the echo format to double encode entities.
+     *
+     * @return void
+     */
+    public function doubleEncode()
+    {
+        $this->setEchoFormat('e(%s, true)');
+    }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 }

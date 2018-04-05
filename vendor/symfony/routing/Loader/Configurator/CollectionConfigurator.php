@@ -23,13 +23,23 @@ class CollectionConfigurator
     use Traits\RouteTrait;
 
     private $parent;
+<<<<<<< HEAD
 
     public function __construct(RouteCollection $parent, $name)
+=======
+    private $parentConfigurator;
+
+    public function __construct(RouteCollection $parent, $name, self $parentConfigurator = null)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $this->parent = $parent;
         $this->name = $name;
         $this->collection = new RouteCollection();
         $this->route = new Route('');
+<<<<<<< HEAD
+=======
+        $this->parentConfigurator = $parentConfigurator; // for GC control
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function __destruct()
@@ -50,7 +60,11 @@ class CollectionConfigurator
     {
         $this->collection->add($this->name.$name, $route = clone $this->route);
 
+<<<<<<< HEAD
         return new RouteConfigurator($this->collection, $route->setPath($path), $this->name);
+=======
+        return new RouteConfigurator($this->collection, $route->setPath($path), $this->name, $this);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**
@@ -60,7 +74,11 @@ class CollectionConfigurator
      */
     final public function collection($name = '')
     {
+<<<<<<< HEAD
         return new self($this->collection, $this->name.$name);
+=======
+        return new self($this->collection, $this->name.$name, $this);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**

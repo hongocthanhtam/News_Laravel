@@ -10,6 +10,7 @@
  */
 
 return array(
+<<<<<<< HEAD
     'year' => '1 ปี|:count ปี',
     'y' => '1 ปี|:count ปี',
     'month' => '1 เดือน|:count เดือน',
@@ -28,4 +29,24 @@ return array(
     'from_now' => ':time จากนี้',
     'after' => 'หลัง:time',
     'before' => 'ก่อน:time',
+=======
+    'year' => ':count ปี',
+    'y' => ':count ปี',
+    'month' => ':count เดือน',
+    'm' => ':count เดือน',
+    'week' => ':count สัปดาห์',
+    'w' => ':count สัปดาห์',
+    'day' => ':count วัน',
+    'd' => ':count วัน',
+    'hour' => ':count ชั่วโมง',
+    'h' => ':count ชั่วโมง',
+    'minute' => ':count นาที',
+    'min' => ':count นาที',
+    'second' => ':count วินาที',
+    's' => ':count วินาที',
+    'ago' => ':timeที่แล้ว',
+    'from_now' => ':timeต่อจากนี้',
+    'after' => ':timeหลังจากนี้',
+    'before' => ':timeก่อน',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 );

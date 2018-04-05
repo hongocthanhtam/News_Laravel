@@ -111,7 +111,11 @@ class FlattenExceptionTest extends TestCase
     /**
      * @dataProvider flattenDataProvider
      */
+<<<<<<< HEAD
     public function testFlattenHttpException(\Exception $exception, $statusCode)
+=======
+    public function testFlattenHttpException(\Exception $exception)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $flattened = FlattenException::create($exception);
         $flattened2 = FlattenException::create($exception);
@@ -126,7 +130,11 @@ class FlattenExceptionTest extends TestCase
     /**
      * @dataProvider flattenDataProvider
      */
+<<<<<<< HEAD
     public function testPrevious(\Exception $exception, $statusCode)
+=======
+    public function testPrevious(\Exception $exception)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $flattened = FlattenException::create($exception);
         $flattened2 = FlattenException::create($exception);
@@ -173,7 +181,11 @@ class FlattenExceptionTest extends TestCase
     /**
      * @dataProvider flattenDataProvider
      */
+<<<<<<< HEAD
     public function testToArray(\Exception $exception, $statusCode)
+=======
+    public function testToArray(\Exception $exception)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $flattened = FlattenException::create($exception);
         $flattened->setTrace(array(), 'foo.php', 123);
@@ -193,7 +205,11 @@ class FlattenExceptionTest extends TestCase
     public function flattenDataProvider()
     {
         return array(
+<<<<<<< HEAD
             array(new \Exception('test', 123), 500),
+=======
+            array(new \Exception('test', 123)),
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         );
     }
 

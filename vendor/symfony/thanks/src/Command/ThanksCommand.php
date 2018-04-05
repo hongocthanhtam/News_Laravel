@@ -13,9 +13,19 @@ namespace Symfony\Thanks\Command;
 
 use Composer\Command\BaseCommand;
 use Composer\Composer;
+<<<<<<< HEAD
 use Composer\Json\JsonFile;
 use Composer\Util\RemoteFilesystem;
 use Composer\Factory;
+=======
+use Composer\Downloader\TransportException;
+use Composer\Json\JsonFile;
+use Composer\Util\RemoteFilesystem;
+use Composer\Factory;
+use Composer\Plugin\PluginEvents;
+use Composer\Plugin\PreFileDownloadEvent;
+use Hirak\Prestissimo\CurlRemoteFilesystem;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -92,14 +102,23 @@ class ThanksCommand extends BaseCommand
         ],
     ];
 
+<<<<<<< HEAD
     private $star = '⭐ ';
     private $heart = '💖';
+=======
+    private $star = '★ ';
+    private $love = '💖 ';
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
     protected function configure()
     {
         if ('\\' === DIRECTORY_SEPARATOR) {
             $this->star = '*';
+<<<<<<< HEAD
             $this->heart = '<3';
+=======
+            $this->love = '<3';
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
 
         $this->setName('thanks')
@@ -164,7 +183,12 @@ class ThanksCommand extends BaseCommand
             }
         }
 
+<<<<<<< HEAD
         $repos = $this->callGitHub($rfs, sprintf("query{\n%s}", $graphql));
+=======
+        $failures = [];
+        $repos = $this->callGitHub($rfs, sprintf("query{\n%s}", $graphql), $failures);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         $template = '%1$s: addStar(input:{clientMutationId:"%s",starrableId:"%s"}){clientMutationId}'."\n";
         $graphql = '';
@@ -190,21 +214,68 @@ class ThanksCommand extends BaseCommand
             }
         }
 
+<<<<<<< HEAD
         $output->writeln(sprintf("\nThanks to you! %s", $this->heart));
+=======
+        if ($failures) {
+            $output->writeln('');
+            $output->writeln('Some repositories could not be starred, please run <info>composer update</info> and try again:');
+
+            foreach ($failures as $alias => $message) {
+                $output->writeln(sprintf(' * %s - %s', $aliases[$alias][1], $message));
+            }
+        }
+
+        $output->writeln(sprintf("\nThanks to you! %s", $this->love));
+        $output->writeln("Please consider contributing back in any way if you can!");
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         return 0;
     }
 
+<<<<<<< HEAD
     private function callGitHub(RemoteFilesystem $rfs, $graphql)
     {
+=======
+    private function callGitHub(RemoteFilesystem $rfs, $graphql, &$failures = [])
+    {
+        if ($eventDispatcher = $this->getComposer()->getEventDispatcher()) {
+            $preFileDownloadEvent = new PreFileDownloadEvent(PluginEvents::PRE_FILE_DOWNLOAD, $rfs, 'https://api.github.com/graphql');
+            $eventDispatcher->dispatch($preFileDownloadEvent->getName(), $preFileDownloadEvent);
+            if (!$preFileDownloadEvent->getRemoteFilesystem() instanceof CurlRemoteFilesystem) {
+                $rfs = $preFileDownloadEvent->getRemoteFilesystem();
+            }
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $result = $rfs->getContents('github.com', 'https://api.github.com/graphql', false, [
             'http' => [
                 'method' => 'POST',
                 'content' => json_encode(['query' => $graphql]),
+<<<<<<< HEAD
+=======
+                'header' => ['Content-Type: application/json'],
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             ],
         ]);
         $result = json_decode($result, true);
 
+<<<<<<< HEAD
+=======
+        if (isset($result['errors'][0]['message'])) {
+            if (!$result['data']) {
+                throw new TransportException($result['errors'][0]['message']);
+            }
+
+            foreach ($result['errors'] as $error) {
+                foreach ($error['path'] as $path) {
+                    $failures += [$path => $error['message']];
+                    unset($result['data'][$path]);
+                }
+            }
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return $result['data'];
     }
 

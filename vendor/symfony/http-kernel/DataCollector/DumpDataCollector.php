@@ -67,7 +67,11 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
         if ($this->stopwatch) {
             $this->stopwatch->start('dump');
         }
+<<<<<<< HEAD
         if ($this->isCollected) {
+=======
+        if ($this->isCollected && !$this->dumper) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             $this->isCollected = false;
         }
 
@@ -250,7 +254,11 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
                 --$i;
             }
 
+<<<<<<< HEAD
             if ('cli' !== PHP_SAPI && stripos($h[$i], 'html')) {
+=======
+            if (!\in_array(PHP_SAPI, array('cli', 'phpdbg'), true) && stripos($h[$i], 'html')) {
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
                 $this->dumper = new HtmlDumper('php://output', $this->charset);
                 $this->dumper->setDisplayOptions(array('fileLinkFormat' => $this->fileLinkFormat));
             } else {

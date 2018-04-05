@@ -233,7 +233,11 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
     private $mockObjects = [];
 
     /**
+<<<<<<< HEAD
      * @var array
+=======
+     * @var MockGenerator
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      */
     private $mockObjectGenerator;
 
@@ -969,11 +973,14 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
             $e = $_e;
         }
 
+<<<<<<< HEAD
         if (isset($_e)) {
             $this->status        = BaseTestRunner::STATUS_ERROR;
             $this->statusMessage = $_e->getMessage();
         }
 
+=======
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         // Clean up the mock objects.
         $this->mockObjects = [];
         $this->prophet     = null;
@@ -1006,6 +1013,14 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
             }
         }
 
+<<<<<<< HEAD
+=======
+        if (isset($_e)) {
+            $this->status        = BaseTestRunner::STATUS_ERROR;
+            $this->statusMessage = $_e->getMessage();
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         \clearstatcache();
 
         if ($currentWorkingDirectory != \getcwd()) {

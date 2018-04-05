@@ -84,6 +84,7 @@ class RegisterListenersPass implements CompilerPassInterface
             $def = $container->getDefinition($id);
 
             // We must assume that the class value has been correctly filled, even if the service is created by a factory
+<<<<<<< HEAD
             $class = $container->getParameterBag()->resolveValue($def->getClass());
             $interface = 'Symfony\Component\EventDispatcher\EventSubscriberInterface';
 
@@ -95,6 +96,17 @@ class RegisterListenersPass implements CompilerPassInterface
                 throw new InvalidArgumentException(sprintf('Service "%s" must implement interface "%s".', $id, $interface));
             }
             $container->addObjectResource($class);
+=======
+            $class = $def->getClass();
+
+            if (!$r = $container->getReflectionClass($class)) {
+                throw new InvalidArgumentException(sprintf('Class "%s" used for service "%s" cannot be found.', $class, $id));
+            }
+            if (!$r->isSubclassOf(EventSubscriberInterface::class)) {
+                throw new InvalidArgumentException(sprintf('Service "%s" must implement interface "%s".', $id, EventSubscriberInterface::class));
+            }
+            $class = $r->name;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
             ExtractingEventDispatcher::$subscriber = $class;
             $extractingDispatcher->addSubscriber($extractingDispatcher);

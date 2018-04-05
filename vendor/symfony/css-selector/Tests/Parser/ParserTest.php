@@ -186,6 +186,10 @@ class ParserTest extends TestCase
             array('foo:after', 'Element[foo]', 'after'),
             array('foo::selection', 'Element[foo]', 'selection'),
             array('lorem#ipsum ~ a#b.c[href]:empty::selection', 'CombinedSelector[Hash[Element[lorem]#ipsum] ~ Pseudo[Attribute[Class[Hash[Element[a]#b].c][href]]:empty]]', 'selection'),
+<<<<<<< HEAD
+=======
+            array('video::-webkit-media-controls', 'Element[video]', '-webkit-media-controls'),
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         );
     }
 

@@ -297,6 +297,13 @@ class Finder implements \IteratorAggregate, \Countable
     /**
      * Excludes directories.
      *
+<<<<<<< HEAD
+=======
+     * Directories passed as argument must be relative to the ones defined with the `in()` method. For example:
+     *
+     *     $finder->in(__DIR__)->exclude('ruby');
+     *
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param string|array $dirs A directory path or an array of directories
      *
      * @return $this
@@ -313,6 +320,11 @@ class Finder implements \IteratorAggregate, \Countable
     /**
      * Excludes "hidden" directories and files (starting with a dot).
      *
+<<<<<<< HEAD
+=======
+     * This option is enabled by default.
+     *
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param bool $ignoreDotFiles Whether to exclude "hidden" files or not
      *
      * @return $this
@@ -333,6 +345,11 @@ class Finder implements \IteratorAggregate, \Countable
     /**
      * Forces the finder to ignore version control directories.
      *
+<<<<<<< HEAD
+=======
+     * This option is enabled by default.
+     *
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      * @param bool $ignoreVCS Whether to exclude VCS files or not
      *
      * @return $this

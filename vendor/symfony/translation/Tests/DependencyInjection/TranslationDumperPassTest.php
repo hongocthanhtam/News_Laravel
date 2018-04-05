@@ -12,6 +12,10 @@
 namespace Symfony\Component\Translation\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
+<<<<<<< HEAD
+=======
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Translation\DependencyInjection\TranslationDumperPass;
 
@@ -19,6 +23,7 @@ class TranslationDumperPassTest extends TestCase
 {
     public function testProcess()
     {
+<<<<<<< HEAD
         $definition = $this->getMockBuilder('Symfony\Component\DependencyInjection\Definition')->disableOriginalConstructor()->getMock();
         $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->disableOriginalConstructor()->getMock();
 
@@ -46,10 +51,22 @@ class TranslationDumperPassTest extends TestCase
 
         $translationDumperPass = new TranslationDumperPass();
         $translationDumperPass->process($container);
+=======
+        $container = new ContainerBuilder();
+        $writerDefinition = $container->register('translation.writer');
+        $container->register('foo.id')
+            ->addTag('translation.dumper', array('alias' => 'bar.alias'));
+
+        $translationDumperPass = new TranslationDumperPass();
+        $translationDumperPass->process($container);
+
+        $this->assertEquals(array(array('addDumper', array('bar.alias', new Reference('foo.id')))), $writerDefinition->getMethodCalls());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function testProcessNoDefinitionFound()
     {
+<<<<<<< HEAD
         $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->disableOriginalConstructor()->getMock();
 
         $container->expects($this->once())
@@ -62,5 +79,18 @@ class TranslationDumperPassTest extends TestCase
 
         $translationDumperPass = new TranslationDumperPass();
         $translationDumperPass->process($container);
+=======
+        $container = new ContainerBuilder();
+
+        $definitionsBefore = count($container->getDefinitions());
+        $aliasesBefore = count($container->getAliases());
+
+        $translationDumperPass = new TranslationDumperPass();
+        $translationDumperPass->process($container);
+
+        // the container is untouched (i.e. no new definitions or aliases)
+        $this->assertCount($definitionsBefore, $container->getDefinitions());
+        $this->assertCount($aliasesBefore, $container->getAliases());
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }

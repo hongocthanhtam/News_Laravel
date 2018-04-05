@@ -1,7 +1,11 @@
 Webmozart Assert
 ================
 
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/webmozart/assert.svg?branch=1.2.0)](https://travis-ci.org/webmozart/assert)
+=======
+[![Build Status](https://travis-ci.org/webmozart/assert.svg?branch=master)](https://travis-ci.org/webmozart/assert)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 [![Build status](https://ci.appveyor.com/api/projects/status/lyg83bcsisrr94se/branch/master?svg=true)](https://ci.appveyor.com/project/webmozart/assert/branch/master)
 [![Latest Stable Version](https://poser.pugx.org/webmozart/assert/v/stable.svg)](https://packagist.org/packages/webmozart/assert)
 [![Total Downloads](https://poser.pugx.org/webmozart/assert/downloads.svg)](https://packagist.org/packages/webmozart/assert)
@@ -89,6 +93,7 @@ The [`Assert`] class provides the following assertions:
 
 ### Type Assertions
 
+<<<<<<< HEAD
 Method                                          | Description
 ----------------------------------------------- | --------------------------------------------------
 `string($value, $message = '')`                 | Check that a value is a string
@@ -106,6 +111,30 @@ Method                                          | Description
 `isTraversable($value, $message = '')`          | Check that a value is an array or a `\Traversable`
 `isInstanceOf($value, $class, $message = '')`   | Check that a value is an `instanceof` a class
 `notInstanceOf($value, $class, $message = '')`  | Check that a value is not an `instanceof` a class
+=======
+Method                                                   | Description
+-------------------------------------------------------- | --------------------------------------------------
+`string($value, $message = '')`                          | Check that a value is a string
+`stringNotEmpty($value, $message = '')`                  | Check that a value is a non-empty string
+`integer($value, $message = '')`                         | Check that a value is an integer
+`integerish($value, $message = '')`                      | Check that a value casts to an integer
+`float($value, $message = '')`                           | Check that a value is a float
+`numeric($value, $message = '')`                         | Check that a value is numeric
+`natural($value, $message= ''')`                         | Check that a value is a non-negative integer
+`boolean($value, $message = '')`                         | Check that a value is a boolean
+`scalar($value, $message = '')`                          | Check that a value is a scalar
+`object($value, $message = '')`                          | Check that a value is an object
+`resource($value, $type = null, $message = '')`          | Check that a value is a resource
+`isCallable($value, $message = '')`                      | Check that a value is a callable
+`isArray($value, $message = '')`                         | Check that a value is an array
+`isTraversable($value, $message = '')`  (deprecated)     | Check that a value is an array or a `\Traversable`
+`isIterable($value, $message = '')`                      | Check that a value is an array or a `\Traversable`
+`isCountable($value, $message = '')`                     | Check that a value is an array or a `\Countable`
+`isInstanceOf($value, $class, $message = '')`            | Check that a value is an `instanceof` a class
+`isInstanceOfAny($value, array $classes, $message = '')` | Check that a value is an `instanceof` a at least one class on the array of classes
+`notInstanceOf($value, $class, $message = '')`           | Check that a value is not an `instanceof` a class
+`isArrayAccessible($value, $message = '')`               | Check that a value can be accessed as an array
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 ### Comparison Assertions
 
@@ -134,8 +163,14 @@ You should check that a value is a string with `Assert::string()` before making
 any of the following assertions.
 
 Method                                              | Description
+<<<<<<< HEAD
 --------------------------------------------------- | --------------------------------------------------
 `contains($value, $subString, $message = '')`       | Check that a string contains a substring
+=======
+--------------------------------------------------- | -----------------------------------------------------------------
+`contains($value, $subString, $message = '')`       | Check that a string contains a substring
+`notContains($value, $subString, $message = '')`    | Check that a string does not contains a substring
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 `startsWith($value, $prefix, $message = '')`        | Check that a string has a prefix
 `startsWithLetter($value, $message = '')`           | Check that a string starts with a letter
 `endsWith($value, $suffix, $message = '')`          | Check that a string has a suffix
@@ -150,6 +185,10 @@ Method                                              | Description
 `maxLength($value, $max, $message = '')`            | Check that a string has at most a certain number of characters
 `lengthBetween($value, $min, $max, $message = '')`  | Check that a string has a length in the given range
 `uuid($value, $message = '')`                       | Check that a string is a valid UUID
+<<<<<<< HEAD
+=======
+`notWhitespaceOnly($value, $message = '')`          | Check that a string contains at least one non-whitespace character
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 ### File Assertions
 
@@ -175,11 +214,22 @@ Method                                                | Description
 
 ### Array Assertions
 
+<<<<<<< HEAD
 Method                                      | Description
 ------------------------------------------- | --------------------------------------------------
 `keyExists($array, $key, $message = '')`    | Check that a key exists in an array
 `keyNotExists($array, $key, $message = '')` | Check that a key does not exist in an array
 `count($array, $number, $message = '')`     | Check that an array contains a specific number of elements
+=======
+Method                                             | Description
+-------------------------------------------------- | ------------------------------------------------------------------
+`keyExists($array, $key, $message = '')`           | Check that a key exists in an array
+`keyNotExists($array, $key, $message = '')`        | Check that a key does not exist in an array
+`count($array, $number, $message = '')`            | Check that an array contains a specific number of elements
+`minCount($array, $min, $message = '')`            | Check that an array contains at least a certain number of elements
+`maxCount($array, $max, $message = '')`            | Check that an array contains at most a certain number of elements
+`countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
 ### Function Assertions
 
@@ -235,7 +285,11 @@ All contents of this package are licensed under the [MIT license].
 [Composer]: https://getcomposer.org
 [Bernhard Schussek]: http://webmozarts.com
 [The Community Contributors]: https://github.com/webmozart/assert/graphs/contributors
+<<<<<<< HEAD
 [issue tracker]: https://github.com/webmozart/assert
+=======
+[issue tracker]: https://github.com/webmozart/assert/issues
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 [Git repository]: https://github.com/webmozart/assert
 [@webmozart]: https://twitter.com/webmozart
 [MIT license]: LICENSE

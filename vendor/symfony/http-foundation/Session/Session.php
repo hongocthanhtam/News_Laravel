@@ -29,6 +29,10 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
     private $flashName;
     private $attributeName;
     private $data = array();
+<<<<<<< HEAD
+=======
+    private $hasBeenStarted;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
     /**
      * @param SessionStorageInterface $storage    A SessionStorageInterface instance
@@ -145,6 +149,19 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
      *
      * @internal
      */
+<<<<<<< HEAD
+=======
+    public function hasBeenStarted()
+    {
+        return $this->hasBeenStarted;
+    }
+
+    /**
+     * @return bool
+     *
+     * @internal
+     */
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function isEmpty()
     {
         foreach ($this->data as &$data) {
@@ -227,7 +244,11 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
      */
     public function registerBag(SessionBagInterface $bag)
     {
+<<<<<<< HEAD
         $this->storage->registerBag(new SessionBagProxy($bag, $this->data));
+=======
+        $this->storage->registerBag(new SessionBagProxy($bag, $this->data, $this->hasBeenStarted));
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**
@@ -257,6 +278,10 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
      */
     private function getAttributeBag()
     {
+<<<<<<< HEAD
         return $this->storage->getBag($this->attributeName)->getBag();
+=======
+        return $this->getBag($this->attributeName);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }

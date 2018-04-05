@@ -21,6 +21,10 @@ namespace Illuminate\Support\Facades;
  * @method static \Illuminate\Support\Facades\Route domain(string $value)
  * @method static \Illuminate\Support\Facades\Route name(string $value)
  * @method static \Illuminate\Support\Facades\Route namespace(string $value)
+<<<<<<< HEAD
+=======
+ * @method static \Illuminate\Support\Facades\Route where(array|string $name, string $expression = null)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
  * @method static \Illuminate\Routing\Router group(\Closure|string|array $value)
  * @method static \Illuminate\Support\Facades\Route redirect(string $uri, string $destination, int $status = 301)
  * @method static \Illuminate\Support\Facades\Route view(string $uri, string $view, array $data = [])

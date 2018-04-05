@@ -323,8 +323,13 @@ case_list:
 ;
 
 case:
+<<<<<<< HEAD
       T_CASE expr case_separator inner_statement_list       { $$ = Stmt\Case_[$2, $4]; }
     | T_DEFAULT case_separator inner_statement_list         { $$ = Stmt\Case_[null, $3]; }
+=======
+      T_CASE expr case_separator inner_statement_list_ex    { $$ = Stmt\Case_[$2, $4]; }
+    | T_DEFAULT case_separator inner_statement_list_ex      { $$ = Stmt\Case_[null, $3]; }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 ;
 
 case_separator:

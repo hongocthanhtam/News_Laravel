@@ -17,6 +17,10 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface;
+<<<<<<< HEAD
+=======
+use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Symfony\Component\HttpKernel\HttpKernel;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\DataCollector\RequestDataCollector;
@@ -195,6 +199,59 @@ class RequestDataCollectorTest extends TestCase
         $this->assertSame('n/a', $c->getController());
     }
 
+<<<<<<< HEAD
+=======
+    public function testItAddsRedirectedAttributesWhenRequestContainsSpecificCookie()
+    {
+        $request = $this->createRequest();
+        $request->cookies->add(array(
+            'sf_redirect' => '{}',
+        ));
+
+        $kernel = $this->getMockBuilder(HttpKernelInterface::class)->getMock();
+
+        $c = new RequestDataCollector();
+        $c->onKernelResponse(new FilterResponseEvent($kernel, $request, HttpKernelInterface::MASTER_REQUEST, $this->createResponse()));
+
+        $this->assertTrue($request->attributes->get('_redirected'));
+    }
+
+    public function testItSetsARedirectCookieIfTheResponseIsARedirection()
+    {
+        $c = new RequestDataCollector();
+
+        $response = $this->createResponse();
+        $response->setStatusCode(302);
+        $response->headers->set('Location', '/somewhere-else');
+
+        $c->collect($request = $this->createRequest(), $response);
+        $c->lateCollect();
+
+        $cookie = $this->getCookieByName($response, 'sf_redirect');
+
+        $this->assertNotEmpty($cookie->getValue());
+    }
+
+    public function testItCollectsTheRedirectionAndClearTheCookie()
+    {
+        $c = new RequestDataCollector();
+
+        $request = $this->createRequest();
+        $request->attributes->set('_redirected', true);
+        $request->cookies->add(array(
+            'sf_redirect' => '{"method": "POST"}',
+        ));
+
+        $c->collect($request, $response = $this->createResponse());
+        $c->lateCollect();
+
+        $this->assertEquals('POST', $c->getRedirect()['method']);
+
+        $cookie = $this->getCookieByName($response, 'sf_redirect');
+        $this->assertNull($cookie->getValue());
+    }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     protected function createRequest($routeParams = array('name' => 'foo'))
     {
         $request = Request::create('http://test.com/foo?bar=baz');
@@ -269,4 +326,18 @@ class RequestDataCollectorTest extends TestCase
     {
         throw new \LogicException('Unexpected method call');
     }
+<<<<<<< HEAD
+=======
+
+    private function getCookieByName(Response $response, $name)
+    {
+        foreach ($response->headers->getCookies() as $cookie) {
+            if ($cookie->getName() == $name) {
+                return $cookie;
+            }
+        }
+
+        throw new \InvalidArgumentException(sprintf('Cookie named "%s" is not in response', $name));
+    }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 }

@@ -29,6 +29,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 abstract class AbstractTestSessionListener implements EventSubscriberInterface
 {
+<<<<<<< HEAD
+=======
+    private $sessionId;
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     public function onKernelRequest(GetResponseEvent $event)
     {
         if (!$event->isMasterRequest()) {
@@ -44,7 +49,12 @@ abstract class AbstractTestSessionListener implements EventSubscriberInterface
         $cookies = $event->getRequest()->cookies;
 
         if ($cookies->has($session->getName())) {
+<<<<<<< HEAD
             $session->setId($cookies->get($session->getName()));
+=======
+            $this->sessionId = $cookies->get($session->getName());
+            $session->setId($this->sessionId);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
     }
 
@@ -58,6 +68,7 @@ abstract class AbstractTestSessionListener implements EventSubscriberInterface
             return;
         }
 
+<<<<<<< HEAD
         $session = $event->getRequest()->getSession();
         if ($session && $session->isStarted()) {
             $session->save();
@@ -65,6 +76,20 @@ abstract class AbstractTestSessionListener implements EventSubscriberInterface
                 $params = session_get_cookie_params();
                 $event->getResponse()->headers->setCookie(new Cookie($session->getName(), $session->getId(), 0 === $params['lifetime'] ? 0 : time() + $params['lifetime'], $params['path'], $params['domain'], $params['secure'], $params['httponly']));
             }
+=======
+        if (!$session = $event->getRequest()->getSession()) {
+            return;
+        }
+
+        if ($wasStarted = $session->isStarted()) {
+            $session->save();
+        }
+
+        if ($session instanceof Session ? !$session->isEmpty() || $session->getId() !== $this->sessionId : $wasStarted) {
+            $params = session_get_cookie_params();
+            $event->getResponse()->headers->setCookie(new Cookie($session->getName(), $session->getId(), 0 === $params['lifetime'] ? 0 : time() + $params['lifetime'], $params['path'], $params['domain'], $params['secure'], $params['httponly']));
+            $this->sessionId = $session->getId();
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         }
     }
 

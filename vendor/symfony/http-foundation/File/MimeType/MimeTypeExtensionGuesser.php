@@ -599,6 +599,10 @@ class MimeTypeExtensionGuesser implements ExtensionGuesserInterface
         'application/x-xliff+xml' => 'xlf',
         'application/x-xpinstall' => 'xpi',
         'application/x-xz' => 'xz',
+<<<<<<< HEAD
+=======
+        'application/x-zip-compressed' => 'zip',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         'application/x-zmachine' => 'z1',
         'application/xaml+xml' => 'xaml',
         'application/xcap-diff+xml' => 'xdf',

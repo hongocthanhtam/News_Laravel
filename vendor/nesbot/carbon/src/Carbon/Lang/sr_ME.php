@@ -9,6 +9,7 @@
  * file that was distributed with this source code.
  */
 
+<<<<<<< HEAD
 return array(
     'year' => '{2,3,4,22,23,24,32,33,34,42,43,44,52,53,54}:count godine|[0,Inf[ :count godina',
     'y' => ':count g.',
@@ -36,3 +37,6 @@ return array(
     'week_ago' => '{1} :count nedjelju|{2,3,4} :count nedjelje|[5,Inf[ :count nedjelja',
 
 );
+=======
+return require __DIR__.'/sr_Latn_ME.php';
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a

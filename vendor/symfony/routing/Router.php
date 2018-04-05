@@ -302,7 +302,13 @@ class Router implements RouterInterface, RequestMatcherInterface
             }
         );
 
+<<<<<<< HEAD
         require_once $cache->getPath();
+=======
+        if (!class_exists($this->options['matcher_cache_class'], false)) {
+            require_once $cache->getPath();
+        }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         return $this->matcher = new $this->options['matcher_cache_class']($this->context);
     }
@@ -334,7 +340,13 @@ class Router implements RouterInterface, RequestMatcherInterface
                 }
             );
 
+<<<<<<< HEAD
             require_once $cache->getPath();
+=======
+            if (!class_exists($this->options['generator_cache_class'], false)) {
+                require_once $cache->getPath();
+            }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
             $this->generator = new $this->options['generator_cache_class']($this->context, $this->logger);
         }

@@ -16,11 +16,21 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->boolean('role');
+            $table->boolean('status');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'name'      => 'hoihmy',
+            'role'      => '0',
+            'email'     => 'my.hoih@student.passerellesnumeriques.org',
+            'status'    => '0',
+            'password'  => Hash::make('hoihmy')
+        ]);
     }
 
     /**

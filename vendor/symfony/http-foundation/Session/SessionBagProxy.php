@@ -20,11 +20,21 @@ final class SessionBagProxy implements SessionBagInterface
 {
     private $bag;
     private $data;
+<<<<<<< HEAD
 
     public function __construct(SessionBagInterface $bag, array &$data)
     {
         $this->bag = $bag;
         $this->data = &$data;
+=======
+    private $hasBeenStarted;
+
+    public function __construct(SessionBagInterface $bag, array &$data, &$hasBeenStarted)
+    {
+        $this->bag = $bag;
+        $this->data = &$data;
+        $this->hasBeenStarted = &$hasBeenStarted;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**
@@ -56,6 +66,10 @@ final class SessionBagProxy implements SessionBagInterface
      */
     public function initialize(array &$array)
     {
+<<<<<<< HEAD
+=======
+        $this->hasBeenStarted = true;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $this->data[$this->bag->getStorageKey()] = &$array;
 
         $this->bag->initialize($array);

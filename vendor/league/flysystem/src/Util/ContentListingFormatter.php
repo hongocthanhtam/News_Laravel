@@ -75,7 +75,11 @@ class ContentListingFormatter
     /**
      * Check if the entry resides within the parent directory.
      *
+<<<<<<< HEAD
      * @param $entry
+=======
+     * @param array $entry
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      *
      * @return bool
      */
@@ -91,7 +95,11 @@ class ContentListingFormatter
     /**
      * Check if the entry is a direct child of the directory.
      *
+<<<<<<< HEAD
      * @param $entry
+=======
+     * @param array $entry
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      *
      * @return bool
      */
@@ -107,12 +115,18 @@ class ContentListingFormatter
      */
     private function sortListing(array $listing)
     {
+<<<<<<< HEAD
         usort(
             $listing,
             function ($a, $b) {
                 return strcasecmp($a['path'], $b['path']);
             }
         );
+=======
+        usort($listing, function ($a, $b) {
+            return strcasecmp($a['path'], $b['path']);
+        });
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 
         return $listing;
     }

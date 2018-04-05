@@ -34,7 +34,11 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      */
     protected static $proxies = [
         'average', 'avg', 'contains', 'each', 'every', 'filter', 'first', 'flatMap',
+<<<<<<< HEAD
         'keyBy', 'map', 'partition', 'reject', 'sortBy', 'sortByDesc', 'sum',
+=======
+        'keyBy', 'map', 'partition', 'reject', 'sortBy', 'sortByDesc', 'sum', 'unique',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     ];
 
     /**
@@ -271,6 +275,11 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      */
     public function dd(...$args)
     {
+<<<<<<< HEAD
+=======
+        http_response_code(500);
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         call_user_func_array([$this, 'dump'], $args);
 
         die(1);
@@ -391,7 +400,11 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     public function except($keys)
     {
         if ($keys instanceof self) {
+<<<<<<< HEAD
             $keys = $keys->keys()->all();
+=======
+            $keys = $keys->all();
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         } elseif (! is_array($keys)) {
             $keys = func_get_args();
         }
@@ -658,6 +671,15 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      */
     public function groupBy($groupBy, $preserveKeys = false)
     {
+<<<<<<< HEAD
+=======
+        if (is_array($groupBy)) {
+            $nextGroups = $groupBy;
+
+            $groupBy = array_shift($nextGroups);
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $groupBy = $this->valueRetriever($groupBy);
 
         $results = [];
@@ -680,7 +702,17 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
             }
         }
 
+<<<<<<< HEAD
         return new static($results);
+=======
+        $result = new static($results);
+
+        if (! empty($nextGroups)) {
+            return $result->map->groupBy($nextGroups, $preserveKeys);
+        }
+
+        return $result;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     /**
@@ -1052,6 +1084,13 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
             return new static($this->items);
         }
 
+<<<<<<< HEAD
+=======
+        if ($keys instanceof self) {
+            $keys = $keys->all();
+        }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $keys = is_array($keys) ? $keys : func_get_args();
 
         return new static(Arr::only($this->items, $keys));

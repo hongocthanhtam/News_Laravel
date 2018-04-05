@@ -76,11 +76,19 @@ class RouteCollectionBuilder
             foreach ($collection->getResources() as $resource) {
                 $builder->addResource($resource);
             }
+<<<<<<< HEAD
 
             // mount into this builder
             $this->mount($prefix, $builder);
         }
 
+=======
+        }
+
+        // mount into this builder
+        $this->mount($prefix, $builder);
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         return $builder;
     }
 

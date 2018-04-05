@@ -20,7 +20,11 @@ class StreamHasher
     }
 
     /**
+<<<<<<< HEAD
      * @param $resource
+=======
+     * @param resource $resource
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
      *
      * @return string
      */

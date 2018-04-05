@@ -282,6 +282,7 @@ class ArgvInput extends Input
                 return false;
             }
             foreach ($values as $value) {
+<<<<<<< HEAD
                 if ($token === $value || 0 === strpos($token, $value.'=')) {
                     return true;
                 }
@@ -295,6 +296,15 @@ class ArgvInput extends Input
                         return true;
                     }
                 }
+=======
+                // Options with values:
+                //   For long options, test for '--option=' at beginning
+                //   For short options, test for '-o' at beginning
+                $leading = 0 === strpos($value, '--') ? $value.'=' : $value;
+                if ($token === $value || '' !== $leading && 0 === strpos($token, $leading)) {
+                    return true;
+                }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
         }
 
@@ -316,6 +326,7 @@ class ArgvInput extends Input
             }
 
             foreach ($values as $value) {
+<<<<<<< HEAD
                 if ($token === $value || 0 === strpos($token, $value.'=')) {
                     if (false !== $pos = strpos($token, '=')) {
                         return substr($token, $pos + 1);
@@ -323,6 +334,18 @@ class ArgvInput extends Input
 
                     return array_shift($tokens);
                 }
+=======
+                if ($token === $value) {
+                    return array_shift($tokens);
+                }
+                // Options with values:
+                //   For long options, test for '--option=' at beginning
+                //   For short options, test for '-o' at beginning
+                $leading = 0 === strpos($value, '--') ? $value.'=' : $value;
+                if ('' !== $leading && 0 === strpos($token, $leading)) {
+                    return substr($token, strlen($leading));
+                }
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             }
         }
 

@@ -11,6 +11,10 @@
 
 namespace Prophecy\Doubler\Generator\Node;
 
+<<<<<<< HEAD
+=======
+use Prophecy\Doubler\Generator\TypeHintReference;
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
 use Prophecy\Exception\InvalidArgumentException;
 
 /**
@@ -34,6 +38,7 @@ class MethodNode
     private $arguments = array();
 
     /**
+<<<<<<< HEAD
      * @param string $name
      * @param string $code
      */
@@ -41,6 +46,21 @@ class MethodNode
     {
         $this->name = $name;
         $this->code = $code;
+=======
+     * @var TypeHintReference
+     */
+    private $typeHintReference;
+
+    /**
+     * @param string $name
+     * @param string $code
+     */
+    public function __construct($name, $code = null, TypeHintReference $typeHintReference = null)
+    {
+        $this->name = $name;
+        $this->code = $code;
+        $this->typeHintReference = $typeHintReference ?: new TypeHintReference();
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function getVisibility()
@@ -112,6 +132,7 @@ class MethodNode
      */
     public function setReturnType($type = null)
     {
+<<<<<<< HEAD
         switch ($type) {
             case '':
                 $this->returnType = null;
@@ -144,6 +165,24 @@ class MethodNode
             default:
                 $this->returnType = '\\' . ltrim($type, '\\');
         }
+=======
+        if ($type === '' || $type === null) {
+            $this->returnType = null;
+            return;
+        }
+        $typeMap = array(
+            'double' => 'float',
+            'real' => 'float',
+            'boolean' => 'bool',
+            'integer' => 'int',
+        );
+        if (isset($typeMap[$type])) {
+            $type = $typeMap[$type];
+        }
+        $this->returnType = $this->typeHintReference->isBuiltInReturnTypeHint($type) ?
+            $type :
+            '\\' . ltrim($type, '\\');
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 
     public function getReturnType()

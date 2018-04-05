@@ -22,10 +22,20 @@ class RouteConfigurator
     use Traits\AddTrait;
     use Traits\RouteTrait;
 
+<<<<<<< HEAD
     public function __construct(RouteCollection $collection, Route $route, $name = '')
+=======
+    private $parentConfigurator;
+
+    public function __construct(RouteCollection $collection, Route $route, $name = '', CollectionConfigurator $parentConfigurator = null)
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     {
         $this->collection = $collection;
         $this->route = $route;
         $this->name = $name;
+<<<<<<< HEAD
+=======
+        $this->parentConfigurator = $parentConfigurator; // for GC control
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     }
 }

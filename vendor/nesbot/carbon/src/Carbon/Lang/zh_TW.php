@@ -10,6 +10,7 @@
  */
 
 return array(
+<<<<<<< HEAD
     'year' => ':count 年',
     'y' => ':count 年',
     'month' => ':count 月',
@@ -26,6 +27,24 @@ return array(
     's' => ':count 秒',
     'ago' => ':time前',
     'from_now' => '距現在 :time',
+=======
+    'year' => ':count年',
+    'y' => ':count年',
+    'month' => ':count月',
+    'm' => ':count月',
+    'week' => ':count週',
+    'w' => ':count週',
+    'day' => ':count天',
+    'd' => ':count天',
+    'hour' => ':count小時',
+    'h' => ':count小時',
+    'minute' => ':count分鐘',
+    'min' => ':count分鐘',
+    'second' => ':count秒',
+    's' => ':count秒',
+    'ago' => ':time前',
+    'from_now' => '距現在:time',
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
     'after' => ':time後',
     'before' => ':time前',
 );

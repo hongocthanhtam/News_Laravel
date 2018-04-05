@@ -118,7 +118,11 @@ class StrictSessionHandlerTest extends TestCase
         $handler->expects($this->once())->method('read')
             ->with('id')->willReturn('');
         $handler->expects($this->never())->method('write');
+<<<<<<< HEAD
         $handler->expects($this->never())->method('destroy');
+=======
+        $handler->expects($this->once())->method('destroy')->willReturn(true);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $proxy = new StrictSessionHandler($handler);
 
         $this->assertFalse($proxy->validateId('id'));
@@ -154,7 +158,11 @@ class StrictSessionHandlerTest extends TestCase
         $handler = $this->getMockBuilder('SessionHandlerInterface')->getMock();
         $handler->expects($this->once())->method('read')
             ->with('id')->willReturn('');
+<<<<<<< HEAD
         $handler->expects($this->never())->method('destroy');
+=======
+        $handler->expects($this->once())->method('destroy')->willReturn(true);
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
         $proxy = new StrictSessionHandler($handler);
 
         $this->assertSame('', $proxy->read('id'));

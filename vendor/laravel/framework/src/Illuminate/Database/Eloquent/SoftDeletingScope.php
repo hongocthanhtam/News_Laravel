@@ -82,7 +82,15 @@ class SoftDeletingScope implements Scope
      */
     protected function addWithTrashed(Builder $builder)
     {
+<<<<<<< HEAD
         $builder->macro('withTrashed', function (Builder $builder) {
+=======
+        $builder->macro('withTrashed', function (Builder $builder, $withTrashed = true) {
+            if (! $withTrashed) {
+                return $builder->withoutTrashed();
+            }
+
+>>>>>>> eceea602dbabbbcf9d111bb13e5cb759a42b177a
             return $builder->withoutGlobalScope($this);
         });
     }
