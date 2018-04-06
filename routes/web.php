@@ -25,5 +25,8 @@ Route::get('chi-tiet', 'PageController@detail');
 //-------------------------------------------------------------------
 Route::get('forgot-pass', 'PageController@getForgotPassword');
 
+Route::get('change-pass', 'PageController@getChangePassword');
+
 //-------------------------------------------------------------------
 Route::get('contact', 'PageController@getContact');
+

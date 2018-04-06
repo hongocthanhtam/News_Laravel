@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
-class PageController extends Controller {
+class PageController extends Controller
+{
+	// call form forgot pass
 	public function getForgotPassword() {
 		return view('pages.form_forgotpassword');
+	}
+
+	// call form change pass
+	public function getChangePassword() {
+		return view('pages.form_changepassword');
 	}
 
 	// call trangchu page
