@@ -30,11 +30,11 @@ class PageController extends Controller
 	}
 	// login form
 	public function getLogin(){
-		return view('pages.form_login');
+		return view('pages.login');
 	} 
 	// Register form
 	public function getRegister(){
-		return view('pages.form_register');
+		return view('pages.register');
 	} 
 
 }
