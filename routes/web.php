@@ -30,3 +30,13 @@ Route::get('change-pass', 'PageController@getChangePassword');
 //-------------------------------------------------------------------
 Route::get('contact', 'PageController@getContact');
 
+// login 
+Route::get('login',[
+	'as' => 'Login',
+	'uses' => 'PageController@getLogin',
+]);
+// Register 
+Route::get('register',[
+	'as' => 'Register',
+	'uses' => 'PageController@getRegister',
+]);

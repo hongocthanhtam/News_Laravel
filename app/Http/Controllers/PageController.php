@@ -28,5 +28,13 @@ class PageController extends Controller
 	public function getContact() {
 		return view('pages.contact_page');
 	}
+	// login form
+	public function getLogin(){
+		return view('pages.form_login');
+	} 
+	// Register form
+	public function getRegister(){
+		return view('pages.form_register');
+	} 
 
 }
